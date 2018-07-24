@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./CocogoosePro-Thin.woff2') format('woff2'),
+        url('./CocogoosePro-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./CocogoosePro-Italic.woff2') format('woff2'),
+        url('./CocogoosePro-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./COCOGOOSE-UltraLight.woff2') format('woff2'),
+        url('./COCOGOOSE-UltraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./Cocogoose.woff2') format('woff2'),
+        url('./Cocogoose.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Keep Calm';
+    src: url('./KeepCalm-Medium.woff2') format('woff2'),
+        url('./KeepCalm-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./CocogoosePro-LightItalic.woff2') format('woff2'),
+        url('./CocogoosePro-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./CocogoosePro-SemiLightItalic.woff2') format('woff2'),
+        url('./CocogoosePro-SemiLightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./COCOGOOSE-DemiBold.woff2') format('woff2'),
+        url('./COCOGOOSE-DemiBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./CocogoosePro-ThinItalic.woff2') format('woff2'),
+        url('./CocogoosePro-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./Cocogoose-Light.woff2') format('woff2'),
+        url('./Cocogoose-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url('./CocogoosePro-UltraLightItalic.woff2') format('woff2'),
+        url('./CocogoosePro-UltraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}

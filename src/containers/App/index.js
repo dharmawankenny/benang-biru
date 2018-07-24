@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'unstated';
 
 import theme from '../../commons/theme';
+
+import Footer from '../../components/Footer';
 
 import AuthState from '../../states/AuthState';
 
@@ -29,6 +31,7 @@ export default class App extends Component {
               ]}
             />
             <Switch>{routes.map(route => <Route key={route.path} {...route} />)}</Switch>
+            <Footer />
           </Provider>
         </Router>
       </ThemeProvider>

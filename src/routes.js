@@ -37,6 +37,11 @@ const unAuthenticated = Component => {
 // add your sitemap here
 export const SITEMAP = {
   index: '/',
+  about: '/tentang-kami',
+  product: '/produk',
+  faq: '/faq',
+  galery: '/galeri',
+  order: '/pemesanan',
 };
 
 export const history = createHistory();

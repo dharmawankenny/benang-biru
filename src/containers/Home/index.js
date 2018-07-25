@@ -10,6 +10,8 @@ import ProductBgImg from '../../assets/homepage-product-bg.jpg';
 import ShirtImg from '../../assets/shirt.jpg';
 import PoloImg from '../../assets/polo.jpg';
 import HoodieImg from '../../assets/hoodie.jpg';
+import HoodieProd from '../../assets/hoodie-product.jpg';
+import ShirtProd from '../../assets/tshirt.jpeg';
 
 import { media } from '../../commons/theme';
 
@@ -52,7 +54,7 @@ export default class Home extends React.Component {
             <NavigationBar transparent />
             <HeroText>
               <h1>TERIMA PESANAN</h1>
-              <p>Parturient fusce ullamcorper conubia imperdiet torquent consectetur euismod et mi libero ad sem sapien ridiculus erat vestibulum.Pharetra suspendisse fames adipiscing odio a ante a dapibus adipiscing maecenas eu malesuada posuere diam class a conubia non nostra commodo.Fermentum per at dis suspendisse ut fringilla at adipiscing vestibulum neque a.</p>
+              <p>Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.</p>
             </HeroText>
           </HeroContent>
         </Hero>
@@ -60,40 +62,42 @@ export default class Home extends React.Component {
           <WhyUsDecoration src={LogoFaceImage} />
           <WhyUsContent>
             <h1>Percayakan kepada kami</h1>
-            <Featurette>
-              <Feature>
-                <h4>Tepat Waktu</h4>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-              </Feature>
-              <Feature>
-                <h4>Berpengalaman</h4>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-              </Feature>
-              <Feature>
-                <h4>Jaminan Retur</h4>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-              </Feature>
-            </Featurette>
-            <Featurette>
-              <Feature>
-                <h4>Kualitas Terbaik</h4>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-              </Feature>
-              <Feature>
-                <h4>Harga Terjangkau</h4>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-              </Feature>
-              <Feature>
-                <h4>Transaksi Mudah</h4>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-              </Feature>
-            </Featurette>
+            <WhyUsContainer>
+              <Featurette>
+                <Feature>
+                  <h4>Kualitas Terbaik</h4>
+                  <p>Didukung dengan mesin konveksi kelas industrial dan SDM yang professional membuat hasil produksi Benang Biru memiliki kualitas terbaik.</p>
+                </Feature>
+                <Feature>
+                  <h4>Berpengalaman</h4>
+                  <p>Tim Benang Biru terdiri dari orang-orang yang sudah berpengalaman lebih dari 15 tahun di bidangnya.</p>
+                </Feature>
+                <Feature>
+                  <h4>Tepat Waktu</h4>
+                  <p>Benang Biru menggunakan sistem penjadwalan produksi garmen yang cukup akurat dan efisien, sehingga pesanan anda akan selesai tepat waktu.</p>
+                </Feature>
+              </Featurette>
+              <Featurette>
+                <Feature>
+                  <h4>Harga Terjangkau</h4>
+                  <p>Benang Biru memiliki berbagai varian bahan, sehingga memungkinkan anda untuk dapat mendapatkan produk konveksi berkualitas sesuai dengan budget anda.</p>
+                </Feature>
+                <Feature>
+                  <h4>Konsultasi Produk</h4>
+                  <p>Tim Benang Biru melayani konsultasi produksi dan design untuk memenuhi kebutuhan anda.</p>
+                </Feature>
+                <Feature>
+                  <h4>Berbadan Hukum</h4>
+                  <p>Benang Biru merupakan perusahaan berbadan hukum yang sudah terdaftar, dan memiliki surat izin usaha yang lengkap.</p>
+                </Feature>
+              </Featurette>
+            </WhyUsContainer>
           </WhyUsContent>
         </WhyUs>
         <Testimonial>
           <TestimonialBg src={TestimonyBgImg} />
           <TestimonialContent>
-            <h1>PELANGGAN KAMI<br />TELAH MEMBUKTIKANNYA</h1>
+            <h1>PELANGGAN KAMI TELAH<br />MEMBUKTIKANNYA</h1>
             <Testimony>
               <Person src="https://metrouk2.files.wordpress.com/2018/03/621651482-e1520869019624.jpg" />
               <TestimonyContent>
@@ -109,47 +113,47 @@ export default class Home extends React.Component {
             <h1>KAMI DAPAT MEMENUHI BERBAGAI<br /><span>KEBUTUHAN</span> ANDA</h1>
             <Services>
               <Service>
-                <img src="https://images.allsaints.com/products/600/MG006P/5339/MG006P-5339-1.jpg" />
+                <img src={HoodieProd} />
                 <div>
-                  <h4>Hoodie</h4>
-                  <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
+                  <h4>Kaos</h4>
+                  <p>Kaos atau T-Shirt merupakan produk unggulan Kami dan menjadi pilihan favorit konsumen.  Dengan berbagai pilihan bahan & jenis sablon, produk kaos ini cocok untuk fashion label, maupun seragam outing & event.</p>
                 </div>
               </Service>
               <Service>
-                <img src="https://images.allsaints.com/products/600/MG006P/5339/MG006P-5339-1.jpg" />
+                <img src={ShirtProd} />
                 <div>
                   <h4>Hoodie</h4>
-                  <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
+                  <p>Produk unggulan lainnya dari Kami adalah Hoodie & Sweater. Dengan model unisex dan pilihan ketebalan yang bervariasi, produk hoodie ini cocok untuk menjadi seragam komunitas, event maupun fashion label.</p>
                 </div>
               </Service>
               <Service>
-                <img src="https://images.allsaints.com/products/600/MG006P/5339/MG006P-5339-1.jpg" />
+                <img src={ShirtProd} />
                 <div>
-                  <h4>Hoodie</h4>
-                  <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
+                  <h4>Polo Shirt</h4>
+                  <p>Kami dapat memproduksi polo shirt, kaos kerah, atau wangki untuk kebutuhan seragam kantor maupun souvenir event. Dengan menggunakan cotton pique atau lacoste, polo shirt memberi kesan rapi dan nyaman.</p>
                 </div>
               </Service>
             </Services>
             <Services>
               <Service>
-                <img src="https://images.allsaints.com/products/600/MG006P/5339/MG006P-5339-1.jpg" />
+                <img src={HoodieProd} />
                 <div>
-                  <h4>Hoodie</h4>
-                  <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
+                  <h4>Kemeja</h4>
+                  <p>Kami melayani pembuatan kemeja formal seperti safari, oxford, pdh. Hingga kemeja non-formal seperti flannel, chambray dan kemeja pantai. Dengan pilihan bordir atau sablon untuk jadi identitas seragam anda.</p>
                 </div>
               </Service>
               <Service>
-                <img src="https://images.allsaints.com/products/600/MG006P/5339/MG006P-5339-1.jpg" />
+                <img src={ShirtProd} />
                 <div>
-                  <h4>Hoodie</h4>
-                  <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
+                  <h4>Jersey</h4>
+                  <p>Kami juga bisa memproduksi jersey atau seragam olahraga dengan menggunakan bahan dri fit, waffle, benzema, paragon, diadora. Dengan menggunakkan aplikasi sablon & bordir untuk logo & nama pemain.</p>
                 </div>
               </Service>
               <Service>
-                <img src="https://images.allsaints.com/products/600/MG006P/5339/MG006P-5339-1.jpg" />
+                <img src={ShirtProd} />
                 <div>
-                  <h4>Hoodie</h4>
-                  <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
+                  <h4>Seminar Kit</h4>
+                  <p>Produk seminar kit yang bisa diproduksi Kami antara lain adalah totebag, topi, notes, pulpen, lanyard, mug, paying, dll. Kami menyediakan paket seminar kit yang bisa disesuaikan dengan budget anda.</p>
                 </div>
               </Service>
             </Services>
@@ -164,27 +168,30 @@ export default class Home extends React.Component {
                 <img src={ShirtImg} />
                 <div>
                   <h4>Rp 50.000,-</h4>
-                  <span>Bahan Nyaman</span>
-                  <span>Packaging</span>
-                  <span>Delivery</span>
+                  <span>Cotton Combed 30s</span>
+                  <span>Sablon 4 Warna A3</span>
+                  <span>Sablon Label</span>
+                  <span>Packing Plastic</span>
                 </div>
               </Product>
               <Product>
                 <img src={PoloImg} />
                 <div>
-                  <h4>Rp 50.000,-</h4>
-                  <span>Bahan Nyaman</span>
-                  <span>Packaging</span>
-                  <span>Delivery</span>
+                  <h4>Rp 100.000,-</h4>
+                  <span>Fleece</span>
+                  <span>Sablon 4 Warna A3</span>
+                  <span>Sablon Label</span>
+                  <span>Packing Plastic</span>
                 </div>
               </Product>
               <Product>
                 <img src={HoodieImg} />
                 <div>
-                  <h4>Rp 50.000,-</h4>
-                  <span>Bahan Nyaman</span>
-                  <span>Packaging</span>
-                  <span>Delivery</span>
+                  <h4>Rp 65.000,-</h4>
+                  <span>Lacoste</span>
+                  <span>Sablon / Bordir Logo Dada</span>
+                  <span>Sablon Label</span>
+                  <span>Packing Plastic</span>
                 </div>
               </Product>
             </Products>
@@ -299,6 +306,13 @@ const WhyUsContent = styled.div`
   justify-content: flex-start;
   align-items: center;
   align-content: center;
+`;
+
+const WhyUsContainer = styled.div`
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
 `;
 
 const Featurette = styled.div`
@@ -454,12 +468,13 @@ const Service = styled.div`
   border-radius: 1rem;
   background: ${props => props.theme.color.blue};
   color: ${props => props.theme.color.white};
+  font-size: small;
 
   img {
     width: 100%;
     height: 10rem;
     object-fit: cover;
-    object-position: top;
+    object-position: middle;
     border-radius: 1rem 1rem 0 0;
   }
 
@@ -474,6 +489,7 @@ const Service = styled.div`
 
     h4 {
       margin-bottom: 1rem;
+      font-size: large;
     }
   }
 
@@ -542,6 +558,7 @@ const Product = styled.div`
   border-radius: 1rem;
   background: ${props => props.theme.color.blue};
   color: ${props => props.theme.color.white};
+  font-size: medium;
 
   img {
     width: 100%;
@@ -563,6 +580,7 @@ const Product = styled.div`
     h4 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      font-size: 28px;
     }
 
     span {

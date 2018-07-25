@@ -21,12 +21,12 @@ export default class App extends Component {
         <Router history={history}>
           <Provider inject={[authState]}>
             <Helmet
-              titleTemplate="%s - React Unstated Starter"
-              defaultTitle="React Unstated Starter"
+              titleTemplate="%s - Benang Biru"
+              defaultTitle="Benang Biru"
               meta={[
-                { name: 'description', content: 'React Unstated Starter' },
-                { name: 'apple-mobile-web-app-title', content: 'React Unstated Starter' },
-                { name: 'application-name', content: 'React Unstated Starter' },
+                { name: 'description', content: 'Benang Biru' },
+                { name: 'apple-mobile-web-app-title', content: 'Benang Biru' },
+                { name: 'application-name', content: 'Benang Biru' },
                 { name: 'theme-color', content: '#FAFAFA' },
               ]}
             />

@@ -18,10 +18,11 @@ const Footer = () => (
           <Logo src={LogoWhiteImage} />
         </Link>
         <p>
-          A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.
+          © PT SATRIA GARMINDO NUSANTARA
           <br />
+          Gedung Pool Bis Primajasa, Lantai 2
           <br />
-          Caringin, Bandung.
+          Jl. Soekarno Hatta 181, Caringin, Bandung, Jawa Barat 40223 
         </p>
       </Section>
       <Section flex={2} centerPiece>

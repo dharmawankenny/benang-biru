@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 
 // Add more of your components here
 import Home from './containers/Home';
+import About from './containers/About';
 import NotFound from './containers/NotFound';
 
 const authenticated = Component => {
@@ -52,6 +53,11 @@ export default [
     exact: true,
     path: SITEMAP.index,
     render: () => unAuthenticated(Home),
+  },
+  {
+    exact: true,
+    path: SITEMAP.about,
+    render: () => unAuthenticated(About),
   },
   {
     path: '*',

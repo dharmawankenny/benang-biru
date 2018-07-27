@@ -62,36 +62,35 @@ export default class Home extends React.Component {
           <WhyUsDecoration src={LogoFaceImage} />
           <WhyUsContent>
             <h1>Percayakan kepada kami</h1>
-            <WhyUsContainer>
-              <Featurette>
-                <Feature>
-                  <h4>Kualitas Terbaik</h4>
-                  <p>Didukung dengan mesin konveksi kelas industrial dan SDM yang professional membuat hasil produksi Benang Biru memiliki kualitas terbaik.</p>
-                </Feature>
-                <Feature>
-                  <h4>Berpengalaman</h4>
-                  <p>Tim Benang Biru terdiri dari orang-orang yang sudah berpengalaman lebih dari 15 tahun di bidangnya.</p>
-                </Feature>
-                <Feature>
-                  <h4>Tepat Waktu</h4>
-                  <p>Benang Biru menggunakan sistem penjadwalan produksi garmen yang cukup akurat dan efisien, sehingga pesanan anda akan selesai tepat waktu.</p>
-                </Feature>
-              </Featurette>
-              <Featurette>
-                <Feature>
-                  <h4>Harga Terjangkau</h4>
-                  <p>Benang Biru memiliki berbagai varian bahan, sehingga memungkinkan anda untuk dapat mendapatkan produk konveksi berkualitas sesuai dengan budget anda.</p>
-                </Feature>
-                <Feature>
-                  <h4>Konsultasi Produk</h4>
-                  <p>Tim Benang Biru melayani konsultasi produksi dan design untuk memenuhi kebutuhan anda.</p>
-                </Feature>
-                <Feature>
-                  <h4>Berbadan Hukum</h4>
-                  <p>Benang Biru merupakan perusahaan berbadan hukum yang sudah terdaftar, dan memiliki surat izin usaha yang lengkap.</p>
-                </Feature>
-              </Featurette>
-            </WhyUsContainer>
+            <div className="divider" />
+            <Featurette>
+              <Feature>
+                <h4>Kualitas Terbaik</h4>
+                <p>Didukung dengan mesin konveksi kelas industrial dan SDM yang professional membuat hasil produksi Benang Biru memiliki kualitas terbaik.</p>
+              </Feature>
+              <Feature>
+                <h4>Berpengalaman</h4>
+                <p>Tim Benang Biru terdiri dari orang-orang yang sudah berpengalaman lebih dari 15 tahun di bidangnya.</p>
+              </Feature>
+              <Feature>
+                <h4>Tepat Waktu</h4>
+                <p>Benang Biru menggunakan sistem penjadwalan produksi garmen yang cukup akurat dan efisien, sehingga pesanan anda akan selesai tepat waktu.</p>
+              </Feature>
+            </Featurette>
+            <Featurette>
+              <Feature>
+                <h4>Harga Terjangkau</h4>
+                <p>Benang Biru memiliki berbagai varian bahan, sehingga memungkinkan anda untuk dapat mendapatkan produk konveksi berkualitas sesuai dengan budget anda.</p>
+              </Feature>
+              <Feature>
+                <h4>Konsultasi Produk</h4>
+                <p>Tim Benang Biru melayani konsultasi produksi dan design untuk memenuhi kebutuhan anda.</p>
+              </Feature>
+              <Feature>
+                <h4>Berbadan Hukum</h4>
+                <p>Benang Biru merupakan perusahaan berbadan hukum yang sudah terdaftar, dan memiliki surat izin usaha yang lengkap.</p>
+              </Feature>
+            </Featurette>
           </WhyUsContent>
         </WhyUs>
         <Testimonial>
@@ -306,6 +305,18 @@ const WhyUsContent = styled.div`
   justify-content: flex-start;
   align-items: center;
   align-content: center;
+
+  h1 {
+    font-size: 2.5rem;
+    width: 100%;
+  }
+
+  .divider {
+    margin: 3rem 0 0;
+    width: 10rem;
+    height: 0.25rem;
+    background: ${props => props.theme.color.pegasus};
+  }
 `;
 
 const WhyUsContainer = styled.div`
@@ -320,18 +331,27 @@ const Featurette = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  margin: 2rem 0 0;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin: 3rem 0 0;
 `;
 
 const Feature = styled.div`
   flex: 1;
-  margin: 0 2rem;
+  margin: 0 3rem;
 
   &:first-of-type,
   &:last-of-type {
     margin: 0;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    line-height: 1.4;
   }
 `;
 
@@ -457,24 +477,23 @@ const Services = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  margin: 2rem 0 0;
+  align-items: stretch;
+  align-content: stretch;
+  margin: 3rem 0 0;
 `;
 
 const Service = styled.div`
   flex: 1;
-  margin: 0 2rem;
+  margin: 0 3rem;
   border-radius: 1rem;
   background: ${props => props.theme.color.blue};
   color: ${props => props.theme.color.white};
-  font-size: small;
 
   img {
     width: 100%;
     height: 10rem;
     object-fit: cover;
-    object-position: middle;
+    object-position: top;
     border-radius: 1rem 1rem 0 0;
   }
 
@@ -489,7 +508,6 @@ const Service = styled.div`
 
     h4 {
       margin-bottom: 1rem;
-      font-size: large;
     }
   }
 
@@ -558,7 +576,6 @@ const Product = styled.div`
   border-radius: 1rem;
   background: ${props => props.theme.color.blue};
   color: ${props => props.theme.color.white};
-  font-size: medium;
 
   img {
     width: 100%;
@@ -580,7 +597,6 @@ const Product = styled.div`
     h4 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      font-size: 28px;
     }
 
     span {

@@ -11,7 +11,7 @@ const NotFound = () => (
     <Headroom>
       <NavigationBar />
     </Headroom>
-    <h1>404, Not Found :(</h1>
+    <h4>404, Not Found :(</h4>
   </Wrapper>
 );
 

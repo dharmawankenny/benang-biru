@@ -5,6 +5,7 @@ import createHistory from 'history/createBrowserHistory';
 // Add more of your components here
 import Home from './containers/Home';
 import About from './containers/About';
+import Gallery from './containers/Gallery';
 import NotFound from './containers/NotFound';
 
 const authenticated = Component => {
@@ -41,7 +42,7 @@ export const SITEMAP = {
   about: '/tentang-kami',
   product: '/produk',
   faq: '/faq',
-  galery: '/galeri',
+  gallery: '/galeri',
   order: '/pemesanan',
 };
 
@@ -58,6 +59,11 @@ export default [
     exact: true,
     path: SITEMAP.about,
     render: () => unAuthenticated(About),
+  },
+  {
+    exact: true,
+    path: SITEMAP.gallery,
+    render: () => unAuthenticated(Gallery),
   },
   {
     path: '*',

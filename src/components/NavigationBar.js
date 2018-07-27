@@ -25,7 +25,7 @@ const NavigationBar = ({ transparent }) => (
         <NavLink to={SITEMAP.faq}>
           FAQ
         </NavLink>
-        <NavLink to={SITEMAP.galery}>
+        <NavLink to={SITEMAP.gallery}>
           Galeri
         </NavLink>
         <NavLink to={SITEMAP.order}>

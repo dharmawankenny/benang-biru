@@ -48,7 +48,7 @@ injectGlobal`
   button {
     margin: 0;
     padding: 0;
-    font-family: ${theme.font.headingOne};
+    font-family: ${theme.font.body};
     border: none;
     &:hover,
     &:focus {

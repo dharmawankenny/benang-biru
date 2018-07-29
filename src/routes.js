@@ -5,8 +5,11 @@ import createHistory from 'history/createBrowserHistory';
 // Add more of your components here
 import Home from './containers/Home';
 import About from './containers/About';
+import Faq from './containers/Faq';
 import Gallery from './containers/Gallery';
 import NotFound from './containers/NotFound';
+import Order from './containers/Order';
+import Products from './containers/Products';
 
 const authenticated = Component => {
   // put your authentication checker logic here
@@ -62,8 +65,23 @@ export default [
   },
   {
     exact: true,
+    path: SITEMAP.product,
+    render: () => unAuthenticated(Products),
+  },
+  {
+    exact: true,
     path: SITEMAP.gallery,
     render: () => unAuthenticated(Gallery),
+  },
+  {
+    exact: true,
+    path: SITEMAP.order,
+    render: () => unAuthenticated(Order),
+  },
+  {
+    exact: true,
+    path: SITEMAP.faq,
+    render: () => unAuthenticated(Faq),
   },
   {
     path: '*',

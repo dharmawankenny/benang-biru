@@ -6,18 +6,11 @@ import AboutUsBgImage from '../../assets/about-us-bg.jpg';
 
 import { media } from '../../commons/theme';
 
+import ImageZoomModal from '../../components/ImageZoomModal';
 import NavigationBar from '../../components/NavigationBar';
 
 export default class About extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      expandable: '',
-    };
-  }
-
-  OFFICE_PICTURES = [
+  static OFFICE_PICTURES = [
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
@@ -25,6 +18,14 @@ export default class About extends React.Component {
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
   ];
+
+  constructor() {
+    super();
+
+    this.state = {
+      expandable: '',
+    };
+  }
 
   closeExpandable = () => this.setState({ expandable: '' });
 
@@ -34,10 +35,11 @@ export default class About extends React.Component {
     return (
       <Wrapper>
         {this.state.expandable !== '' &&
-          <Expandable>
-            <button onClick={this.closeExpandable}>X</button>
-            <img src={this.state.expandable} />
-          </Expandable>}
+          <ImageZoomModal
+            src={this.state.expandable}
+            onClose={this.closeExpandable}
+          />
+        }
         <NavigationBar />
         <Hero>
           <HeroImage src={AboutUsBgImage} />
@@ -56,7 +58,7 @@ export default class About extends React.Component {
         <Office>
           <h1>KANTOR KAMI</h1>
           <OfficePictures>
-            {this.OFFICE_PICTURES.map(url => (
+            {About.OFFICE_PICTURES.map(url => (
               <OfficePicture>
                 <img src={url} />
                 <button onClick={() => this.expandImage(url)}>
@@ -158,51 +160,6 @@ const HeroBox = styled.div`
   p {
     font-size: 1rem;
     line-height: 1.4;
-  }
-`;
-
-const Expandable = styled.div`
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 4rem;
-
-  img {
-    width: 100%;
-    height: 100%;
-    border: 1rem solid ${props => props.theme.color.white};
-    object-fit: cover;
-  }
-
-  button {
-    position: absolute;
-    z-index: 2;
-    top: 2.5rem;
-    right: 2.5rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    padding: 0.65rem 0;
-    font-size: 1.5rem;
-    line-height: 1;
-    text-align: center;
-    color: ${props => props.theme.color.dark};
-    background: ${props => props.theme.color.white};
-    border: 0.5rem solid ${props => props.theme.color.dark};
-    border-radius: 4rem;
-    transition: 0.25s ease all;
-
-    &:hover {
-      color: ${props => props.theme.color.white};
-      background: ${props => props.theme.color.red};
-      border-color: ${props => props.theme.color.white};
-      transition: 0.25s ease all;
-    }
   }
 `;
 

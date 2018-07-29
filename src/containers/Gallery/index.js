@@ -6,18 +6,11 @@ import GalleryHeaderBgImg from '../../assets/gallery-header-bg.jpg';
 
 import { media } from '../../commons/theme';
 
+import ImageZoomModal from '../../components/ImageZoomModal';
 import NavigationBar from '../../components/NavigationBar';
 
 export default class Gallery extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      expandable: '',
-    };
-  }
-
-  GALLERY_PICTURES = [
+  static GALLERY_PICTURES = [
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
@@ -33,6 +26,14 @@ export default class Gallery extends React.Component {
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
   ];
 
+  constructor() {
+    super();
+
+    this.state = {
+      expandable: '',
+    };
+  }
+
   closeExpandable = () => this.setState({ expandable: '' });
 
   expandImage = url => this.setState({ expandable: url });
@@ -40,11 +41,12 @@ export default class Gallery extends React.Component {
   render() {
     return (
       <Wrapper>
-        {this.state.expandable !== '' &&
-          <Expandable>
-            <button onClick={this.closeExpandable}>X</button>
-            <img src={this.state.expandable} />
-          </Expandable>}
+        {this.state.expandable !== '' && (
+          <ImageZoomModal
+            src={this.state.expandable}
+            onClose={this.closeExpandable}
+          />
+        )}
         <NavigationBar />
         <HeaderBg src={GalleryHeaderBgImg} />
         <Content>
@@ -55,7 +57,7 @@ export default class Gallery extends React.Component {
             </p>
           </HeaderText>
           <Pictures>
-            {this.GALLERY_PICTURES.map(url => (
+            {Gallery.GALLERY_PICTURES.map(url => (
               <Picture>
                 <img src={url} />
                 <button onClick={() => this.expandImage(url)}>
@@ -93,62 +95,17 @@ const Content = styled.div`
   align-content: stretch;
 `;
 
-const Expandable = styled.div`
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 4rem;
-
-  img {
-    width: 100%;
-    height: 100%;
-    border: 1rem solid ${props => props.theme.color.white};
-    object-fit: cover;
-  }
-
-  button {
-    position: absolute;
-    z-index: 2;
-    top: 2.5rem;
-    right: 2.5rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    padding: 0.65rem 0;
-    font-size: 1.5rem;
-    line-height: 1;
-    text-align: center;
-    color: ${props => props.theme.color.dark};
-    background: ${props => props.theme.color.white};
-    border: 0.5rem solid ${props => props.theme.color.dark};
-    border-radius: 4rem;
-    transition: 0.25s ease all;
-
-    &:hover {
-      color: ${props => props.theme.color.white};
-      background: ${props => props.theme.color.red};
-      border-color: ${props => props.theme.color.white};
-      transition: 0.25s ease all;
-    }
-  }
-`;
-
 const HeaderBg = styled.img`
   position: absolute;
   z-index: 0;
   top: 13rem;
   left: 0;
-  width: calc(40% + 4rem);
+  width: calc(30% + 8rem);
   height: 8rem;
 `;
 
 const HeaderText = styled.div`
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -171,7 +128,7 @@ const HeaderText = styled.div`
 `;
 
 const Pictures = styled.div`
-  width: calc(60% - 4rem);
+  width: calc(70% - 4rem);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;

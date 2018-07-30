@@ -13,44 +13,24 @@ import NavigationBar from '../../components/NavigationBar';
 export default class Faq extends React.Component {
   static QNA = [
     {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
+      question: 'Apakah saya bisa pesan dibawah jumlah minimum order?',
+      answer: 'Untuk MOQ kami di 36pcs, apabila ada order dibawah 36pcs akan dikenakan charge (tambahan biaya) sesuai dengan jumlah yang di order.',
     },
     {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
+      question: 'Apakah saya bisa membuat sample terlebih dahulu?',
+      answer: 'Bisa, pembuatan sample & proofing akan dikenakan biaya sesuai jenis produk. Apabila sample tersebut jadi diproduksi, maka biaya sample akan masuk langsung sebagai DP.',
     },
     {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
+      question: 'Apa saja yang harus saya siapkan ketika saya ingin memesan?',
+      answer: 'Sebelumnya, konsultasikan dulu design dan spesifikasi produksi dengan CS Kami. Apabila semua sudah jelas dan lengkap, maka CS Kami akan memberikan penawaran harga. Yang harus disiapkan antara lain adalah file design High Resolution, bisa berupa png, pdf, psd, atau ai. Setelah itu anda bisa membayarkan DP sebesar 60% dari harga yang ditawarkan.',
     },
     {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
+      question: 'Berapa lama saya harus menunggu masa produksi?',
+      answer: 'Rata-rata masa produksi adalah 14 hari kerja untuk produk kaos, terhitung dari tanggal DP masuk. Untuk masa produksi kaos dalam jumlah banyak, atau masa produksi produk lainnya bisa dikonfirmasi terlebih dahulu ke CS kami.',
     },
     {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
-    },
-    {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
-    },
-    {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
-    },
-    {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
-    },
-    {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
-    },
-    {
-      question: 'Lorem Ipsum Dolor Sit Amet?',
-      answer: 'Convallis platea mus semper rutrum rhoncus nisl tempor a duis vel curabitur a platea condimentum nostra potenti adipiscing lectus ut.Sed litora egestas a per ut eget donec ut fames vestibulum cursus interdum est scelerisque diam dictumst parturient est.Convallis tortor leo faucibus hac at a facilisi a semper hac.',
+      question: 'Bagaimana proses pengiriman ketika produk sudah selesai?',
+      answer: 'Setelah produk selesai di packing dan siap untuk dikirim. Anda bisa memilih jasa ekspedisi seperti JNE, J&T, LEGA Paket, Indah Cargo, Herona Express, dll. Kami akan menginformasikan sisa tagihan dan biaya ongkir kepada anda. Barang akan dikirim setelah pelunasan kami terima.',
     },
   ];
 

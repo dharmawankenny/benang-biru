@@ -9,21 +9,64 @@ import { media } from '../../commons/theme';
 import ImageZoomModal from '../../components/ImageZoomModal';
 import NavigationBar from '../../components/NavigationBar';
 
+import gallery1 from '../../assets/gallery/1.jpg';
+import gallery2 from '../../assets/gallery/2.jpg';
+import gallery3 from '../../assets/gallery/3.jpg';
+import gallery4 from '../../assets/gallery/4.jpg';
+import gallery5 from '../../assets/gallery/5.jpg';
+import gallery6 from '../../assets/gallery/6.jpg';
+import gallery7 from '../../assets/gallery/7.jpg';
+import gallery8 from '../../assets/gallery/8.jpg';
+import gallery9 from '../../assets/gallery/9.jpg';
+import gallery10 from '../../assets/gallery/10.jpg';
+import gallery11 from '../../assets/gallery/11.jpg';
+import gallery12 from '../../assets/gallery/12.jpg';
+import gallery13 from '../../assets/gallery/13.jpg';
+import gallery14 from '../../assets/gallery/14.jpg';
+import gallery15 from '../../assets/gallery/15.jpg';
+import gallery16 from '../../assets/gallery/16.jpg';
+import gallery17 from '../../assets/gallery/17.jpg';
+import gallery18 from '../../assets/gallery/18.jpg';
+import gallery19 from '../../assets/gallery/19.jpg';
+import gallery20 from '../../assets/gallery/20.jpg';
+import gallery21 from '../../assets/gallery/21.jpg';
+import gallery22 from '../../assets/gallery/22.jpg';
+import gallery23 from '../../assets/gallery/23.jpg';
+import gallery24 from '../../assets/gallery/24.jpg';
+import gallery25 from '../../assets/gallery/25.jpg';
+import gallery26 from '../../assets/gallery/26.jpg';
+import gallery27 from '../../assets/gallery/27.jpg';
+import gallery28 from '../../assets/gallery/28.jpg';
+import gallery29 from '../../assets/gallery/29.jpg';
+import gallery30 from '../../assets/gallery/30.jpg';
+import gallery31 from '../../assets/gallery/31.jpg';
+import gallery32 from '../../assets/gallery/32.jpg';
+import gallery33 from '../../assets/gallery/33.jpg';
+import gallery34 from '../../assets/gallery/34.jpg';
+import gallery35 from '../../assets/gallery/35.jpg';
+import gallery36 from '../../assets/gallery/36.jpg';
+import gallery37 from '../../assets/gallery/37.jpg';
+import gallery38 from '../../assets/gallery/38.jpg';
+import gallery39 from '../../assets/gallery/39.jpg';
+import gallery40 from '../../assets/gallery/40.jpg';
+import gallery41 from '../../assets/gallery/41.jpg';
+import gallery42 from '../../assets/gallery/42.jpg';
+import gallery43 from '../../assets/gallery/43.jpg';
+import gallery44 from '../../assets/gallery/44.jpg';
+import gallery45 from '../../assets/gallery/45.jpg';
+import gallery46 from '../../assets/gallery/46.jpg';
+import gallery47 from '../../assets/gallery/47.jpg';
+import gallery48 from '../../assets/gallery/48.jpg';
+import gallery49 from '../../assets/gallery/49.jpg';
+import gallery50 from '../../assets/gallery/50.jpg';
+
 export default class Gallery extends React.Component {
   static GALLERY_PICTURES = [
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    gallery1,gallery2,gallery3,gallery4,gallery5,gallery6,gallery7,gallery8,gallery9,gallery10,
+    gallery11,gallery12,gallery13,gallery14,gallery15,gallery16,gallery17,gallery18,gallery19,gallery20,
+    gallery21,gallery22,gallery23,gallery24,gallery25,gallery26,gallery27,gallery28,gallery29,gallery30,
+    gallery31,gallery32,gallery33,gallery34,gallery35,gallery36,gallery37,gallery38,gallery39,gallery40,
+    gallery41,gallery42,gallery43,gallery44,gallery45,gallery46,gallery47,gallery48,gallery49,gallery50,
   ];
 
   constructor() {
@@ -53,7 +96,7 @@ export default class Gallery extends React.Component {
           <HeaderText>
             <h1>GALERI</h1>
             <p>
-              Adipiscing lacus fusce per aliquet vestibulum eu ipsum mollis praesent hendrerit condimentum rhoncus sociis a a id ultricies suspendisse a a ligula consectetur velit faucibus.
+            Portofolio hasil produksi dengan mitra kami, meliputi produk fashion label, seragam instansi, souvenir event hingga baju komunitas.
             </p>
           </HeaderText>
           <Pictures>

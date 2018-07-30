@@ -9,14 +9,38 @@ import { media } from '../../commons/theme';
 import ImageZoomModal from '../../components/ImageZoomModal';
 import NavigationBar from '../../components/NavigationBar';
 
+import gallery1 from '../../assets/office/1.jpg';
+import gallery2 from '../../assets/office/2.jpg';
+import gallery3 from '../../assets/office/3.jpg';
+import gallery4 from '../../assets/office/4.jpg';
+import gallery5 from '../../assets/office/5.jpg';
+import gallery6 from '../../assets/office/6.jpg';
+import gallery7 from '../../assets/office/7.jpg';
+import gallery8 from '../../assets/office/8.jpg';
+import gallery9 from '../../assets/office/9.jpg';
+import gallery10 from '../../assets/office/10.jpg';
+import gallery11 from '../../assets/office/11.jpg';
+import gallery12 from '../../assets/office/12.jpg';
+import gallery13 from '../../assets/office/13.jpg';
+import gallery14 from '../../assets/office/14.jpg';
+import gallery15 from '../../assets/office/15.jpg';
+import gallery16 from '../../assets/office/16.jpg';
+import gallery17 from '../../assets/office/17.jpg';
+import gallery18 from '../../assets/office/18.jpg';
+import gallery19 from '../../assets/office/19.jpg';
+import gallery20 from '../../assets/office/20.jpg';
+import gallery21 from '../../assets/office/21.jpg';
+import gallery22 from '../../assets/office/22.jpg';
+import gallery23 from '../../assets/office/23.jpg';
+import gallery24 from '../../assets/office/24.jpg';
+import gallery25 from '../../assets/office/25.jpg';
+
+
 export default class About extends React.Component {
   static OFFICE_PICTURES = [
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    gallery1,gallery2,gallery3,gallery4,gallery5,gallery6,gallery7,gallery8,gallery9,gallery10,
+    gallery11,gallery12,gallery13,gallery14,gallery15,gallery16,gallery17,gallery18,gallery19,gallery20,
+    gallery21,gallery22,gallery23,gallery24,gallery25,
   ];
 
   constructor() {
@@ -47,11 +71,18 @@ export default class About extends React.Component {
           <HeroContent>
             <HeroBox flex={1} withMargin>
               <h4>PROFIL</h4>
-              <p>Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.</p>
+              <p>Perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lain-lain dengan total kapasitas mencapai 10,000 pcs per bulan.</p>
             </HeroBox>
             <HeroBox flex={1}>
               <h4>VISI & MISI</h4>
-              <p>Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.</p>
+              <p>Visi <br/>
+              Menjadi partner setia dan bisa diandalkan dalam menyediakan produk-produk konveksi, dengan selalu mengedepankan kualitas dan kepuasan konsumen.
+              <br/>Misi
+              <br/>1. Memberikan Kualitas & Harga terbaik
+              <br/>2. Menangani dengan professional
+              <br/>3. Produksi Tepat Waktu
+              <br/>4. Melayani konsultasi produk & design untuk menghasilkan produk yang tepat
+              </p>
             </HeroBox>
           </HeroContent>
         </Hero>
@@ -68,7 +99,7 @@ export default class About extends React.Component {
             ))}
           </OfficePictures>
           <p>
-            Eu consectetur magnis ac tempor elit nostra adipiscing ipsum non a suscipit adipiscing cursus mi vehicula habitasse facilisis imperdiet a varius iaculis felis a aptent dictumst ac consectetur a.A mollis lacinia cras enim scelerisque habitasse ornare nisl parturient a eu vulputate a adipiscing mus vehicula fames eu tincidunt.A suspendisse fermentum rhoncus risus fringilla sociis eleifend ante dolor eros a aliquet massa adipiscing erat adipiscing eu etiam senectus magna tempor auctor mi commodo.Vivamus duis sed a a lectus tincidunt a consectetur a orci id dui bibendum a class habitant nunc cursus a a curabitur sociis.Magna dui nascetur.
+          SDM kami terdiri dari orang-orang yang berpengalaman dan didukung oleh mesin-mesin berkelas industrial sehingga menghasilkan produk terbaik dan berkualitas tinggi. Selain itu sistem kerja industri garmen yang kami terapkan dan lingkungan kerja yang bersih dan nyaman menambah efektifitas dan produktifitas kami dalam bekerja.
           </p>
           <OfficeDecoration src={LogoFaceImage} />
         </Office>

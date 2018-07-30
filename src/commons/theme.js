@@ -29,7 +29,7 @@ const theme = {
 
   shadow: {
     lite: '0 0.25rem 0.25rem rgba(58, 58, 58, 0.15)',
-    regular: '0 0.5rem 1rem rgba(58, 58, 58, 0.15)',
+    regular: 'rgba(0, 0, 0, 0.25) 0 1rem 3rem -0.75rem',
   },
 
   sizing: {

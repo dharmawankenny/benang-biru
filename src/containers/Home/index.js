@@ -5,6 +5,7 @@ import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import SlideShowOneImage from '../../assets/homepage-slideshow-1.jpg';
+import SlideShowTwoImage from '../../assets/homepage-slideshow-2.jpg';
 import TestimonyBgImg from '../../assets/testimony-bg.jpg';
 import ProductBgImg from '../../assets/homepage-product-bg.jpg';
 import ShirtImg from '../../assets/shirt.jpg';
@@ -15,79 +16,121 @@ import ShirtProd from '../../assets/tshirt.jpeg';
 
 import { media } from '../../commons/theme';
 
+import Icon from '../../components/Icon';
 import NavigationBar from '../../components/NavigationBar';
 
 import AuthState from '../../states/AuthState';
 
 export default class Home extends React.Component {
+  static HERO_SLIDER = [
+    {
+      title: 'TERIMA PESANAN',
+      text: 'Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.',
+      bg: SlideShowOneImage,
+    },
+    {
+      title: 'KUALITAS TERBAIK',
+      text: 'Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.',
+      bg: SlideShowTwoImage,
+    },
+  ];
+
+  static TESTIMONIES = [
+    {
+      picture: 'https://metrouk2.files.wordpress.com/2018/03/621651482-e1520869019624.jpg',
+      name: 'Jeremy Clarkson - The Grand Tour',
+      quote: 'A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.',
+    },
+    {
+      picture: 'https://www.indiewire.com/wp-content/uploads/2016/12/richard-hammond.jpg?w=780',
+      name: 'Richard Hammond - The Grand Tour',
+      quote: 'A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.',
+    },
+  ];
+
   constructor() {
     super();
 
     this.state = {
-      showHeadroom: false,
+      sliderPos: 0,
+      testimonyPos: 0,
     };
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.scrollHandler);
-  }
+  nextSlider = () => this.setState({ sliderPos: this.state.sliderPos >= Home.HERO_SLIDER.length - 1 ? 0 : this.state.sliderPos + 1 });
 
-  scrollHandler = e => {
-    const scrollPos = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+  nextTestimony = () => this.setState({ testimonyPos: this.state.testimonyPos >= Home.TESTIMONIES.length - 1 ? 0 : this.state.testimonyPos + 1 });
 
-    if (!this.state.showHeadroom && scrollPos > 100) {
-      this.setState({ showHeadroom: true });
-    } else if (this.state.showHeadroom && scrollPos <= 100) {
-      this.setState({ showHeadroom: false });
-    }
-  };
+  prevTestimony = () => this.setState({ testimonyPos: this.state.testimonyPos <= 0 ? Home.TESTIMONIES.length - 1 : this.state.testimonyPos - 1 });
 
   render() {
     return (
       <Wrapper>
-        <Headroom>
-          <NavigationBar />
-        </Headroom>
+        <HeadroomWrapper>
+          <Headroom>
+            <NavigationBar />
+          </Headroom>
+        </HeadroomWrapper>
         <Hero>
-          <HeroImage src={SlideShowOneImage} />
+          <HeroImage src={Home.HERO_SLIDER[this.state.sliderPos].bg} />
           <HeroContent>
             <NavigationBar transparent />
             <HeroText>
-              <h1>TERIMA PESANAN</h1>
-              <p>Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.</p>
+              <h1>{Home.HERO_SLIDER[this.state.sliderPos].title}</h1>
+              <p>{Home.HERO_SLIDER[this.state.sliderPos].text}</p>
+              <button onClick={this.nextSlider}>
+                Selanjutnya<Icon name="right-long" size={1} noPadding />
+              </button>
             </HeroText>
           </HeroContent>
         </Hero>
         <WhyUs>
           <WhyUsDecoration src={LogoFaceImage} />
           <WhyUsContent>
-            <h1>Percayakan kepada kami</h1>
-            <div className="divider" />
+            <h1>PERCAYAKAN KEPADA KAMI</h1>
             <Featurette>
               <Feature>
-                <h4>Kualitas Terbaik</h4>
+                <div>
+                  <Icon name="quality" size={2} noPadding />
+                  <h4>Kualitas Terbaik</h4>
+                </div>
                 <p>Didukung dengan mesin konveksi kelas industrial dan SDM yang professional membuat hasil produksi Benang Biru memiliki kualitas terbaik.</p>
               </Feature>
               <Feature>
-                <h4>Berpengalaman</h4>
+                <div>
+                  <Icon name="experienced" size={2} noPadding />
+                  <h4>Berpengalaman</h4>
+                </div>
                 <p>Tim Benang Biru terdiri dari orang-orang yang sudah berpengalaman lebih dari 15 tahun di bidangnya.</p>
               </Feature>
               <Feature>
-                <h4>Tepat Waktu</h4>
+                <div>
+                  <Icon name="timely" size={2} noPadding />
+                  <h4>Tepat Waktu</h4>
+                </div>
                 <p>Benang Biru menggunakan sistem penjadwalan produksi garmen yang cukup akurat dan efisien, sehingga pesanan anda akan selesai tepat waktu.</p>
               </Feature>
             </Featurette>
             <Featurette>
               <Feature>
-                <h4>Harga Terjangkau</h4>
+                <div>
+                  <Icon name="cheap" size={2} noPadding />
+                  <h4>Harga Terjangkau</h4>
+                </div>
                 <p>Benang Biru memiliki berbagai varian bahan, sehingga memungkinkan anda untuk dapat mendapatkan produk konveksi berkualitas sesuai dengan budget anda.</p>
               </Feature>
               <Feature>
-                <h4>Konsultasi Produk</h4>
+                <div>
+                  <Icon name="consultation" size={2} noPadding />
+                  <h4>Konsultasi Produk</h4>
+                </div>
                 <p>Tim Benang Biru melayani konsultasi produksi dan design untuk memenuhi kebutuhan anda.</p>
               </Feature>
               <Feature>
-                <h4>Berbadan Hukum</h4>
+                <div>
+                  <Icon name="legal" size={2} noPadding />
+                  <h4>Berbadan Hukum</h4>
+                </div>
                 <p>Benang Biru merupakan perusahaan berbadan hukum yang sudah terdaftar, dan memiliki surat izin usaha yang lengkap.</p>
               </Feature>
             </Featurette>
@@ -98,12 +141,20 @@ export default class Home extends React.Component {
           <TestimonialContent>
             <h1>PELANGGAN KAMI TELAH<br />MEMBUKTIKANNYA</h1>
             <Testimony>
-              <Person src="https://metrouk2.files.wordpress.com/2018/03/621651482-e1520869019624.jpg" />
+              <Person src={Home.TESTIMONIES[this.state.testimonyPos].picture} />
               <TestimonyContent>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-                <h4>Jeremy Clarkson - The Grand Tour</h4>
+                <p>{Home.TESTIMONIES[this.state.testimonyPos].quote}</p>
+                <h4>{Home.TESTIMONIES[this.state.testimonyPos].name}</h4>
               </TestimonyContent>
             </Testimony>
+            <TestimonyNavigator>
+              <button onClick={this.prevTestimony}>
+                <Icon name="left-long" size={1} color="dark" noPadding />
+              </button>
+              <button onClick={this.nextTestimony}>
+                <Icon name="right-long" size={1} color="dark" noPadding />
+              </button>
+            </TestimonyNavigator>
           </TestimonialContent>
         </Testimonial>
         <WhatYouNeed>
@@ -167,30 +218,66 @@ export default class Home extends React.Component {
                 <img src={ShirtImg} />
                 <div>
                   <h4>Rp 50.000,-</h4>
-                  <span>Cotton Combed 30s</span>
-                  <span>Sablon 4 Warna A3</span>
-                  <span>Sablon Label</span>
-                  <span>Packing Plastic</span>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Cotton Combed 30s</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon 4 Warna A3</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon Label</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Packing Plastic</span>
+                  </div>
                 </div>
               </Product>
               <Product>
                 <img src={PoloImg} />
                 <div>
                   <h4>Rp 100.000,-</h4>
-                  <span>Fleece</span>
-                  <span>Sablon 4 Warna A3</span>
-                  <span>Sablon Label</span>
-                  <span>Packing Plastic</span>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Fleece</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon 4 Warna A3</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon Label</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Packing Plastic</span>
+                  </div>
                 </div>
               </Product>
               <Product>
                 <img src={HoodieImg} />
                 <div>
                   <h4>Rp 65.000,-</h4>
-                  <span>Lacoste</span>
-                  <span>Sablon / Bordir Logo Dada</span>
-                  <span>Sablon Label</span>
-                  <span>Packing Plastic</span>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Lacoste</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon / Bordir Logo Dada</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon Label</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Packing Plastic</span>
+                  </div>
                 </div>
               </Product>
             </Products>
@@ -207,7 +294,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   align-content: flex-start;
-  margin: -9rem auto 0;
+  margin: 0 auto 0;
 `;
 
 const Action = styled.button`
@@ -219,9 +306,22 @@ const Action = styled.button`
 `;
 
 const HeadroomWrapper = styled.div`
-  pointer-events: ${props => props.visible ? 'auto' : 'none'};
-  opacity: ${props => props.visible ? '1' : '0'};
-  transition: 0.25s ease all;
+  .headroom--unfixed {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .headroom--unpinned {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .headroom--pinned {
+    max-height: 9rem;
+    opacity: 1;
+  }
 `;
 
 const Hero = styled.div`
@@ -234,6 +334,10 @@ const Hero = styled.div`
   align-items: center;
   align-content: center;
   background: none;
+
+  ${media('tablet')} {
+    height: auto;
+  }
 `;
 
 const HeroImage = styled.img`
@@ -246,6 +350,7 @@ const HeroImage = styled.img`
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  transition: 0.25s ease all;
 `;
 
 const HeroContent = styled.div`
@@ -260,11 +365,58 @@ const HeroContent = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   align-content: flex-start;
+
+  ${media('tablet')} {
+    height: auto;
+    min-height: 100vh;
+  }
 `;
 
 const HeroText = styled.div`
   margin-bottom: 4rem;
   max-width: 40rem;
+
+  ${media('tablet')} {
+    height: auto;
+    margin-top: 30vh;
+    padding: 0 2rem;
+  }
+
+  button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    color: ${props => props.theme.color.dark};
+    background: ${props => props.theme.color.white};
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: ${props => props.theme.shadow.regular};
+    transition: 0.25s ease all;
+    margin-top: 2rem;
+
+    &:hover {
+      color: ${props => props.theme.color.white};
+      background: ${props => props.theme.color.blue};
+      transition: 0.25s ease all;
+
+      & > div {
+        & > span {
+          color: ${props => props.theme.color.white};
+          transition: 0.25s ease all;
+        }
+      }
+    }
+
+    & > div {
+      margin-left: 0.5rem;
+
+      & > span {
+        transition: 0.25s ease all;
+      }
+    }
+  }
 
   h1,
   p {
@@ -276,11 +428,19 @@ const HeroText = styled.div`
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
+
+    ${media('tablet')} {
+      font-size: 2rem;
+    }
   }
 
   p {
     font-size: 1.25rem;
     line-height: 1.4;
+
+    ${media('tablet')} {
+      font-size: 0.875rem;
+    }
   }
 `;
 
@@ -294,6 +454,10 @@ const WhyUs = styled.div`
   align-items: center;
   align-content: center;
   overflow: hidden;
+
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
 `;
 
 const WhyUsContent = styled.div`
@@ -306,9 +470,18 @@ const WhyUsContent = styled.div`
   align-items: center;
   align-content: center;
 
+  ${media('tablet')} {
+    justify-content: center;
+  }
+
   h1 {
     font-size: 2.5rem;
     width: 100%;
+
+    ${media('tablet')} {
+      font-size: 1.75rem;
+      text-align: center;
+    }
   }
 
   .divider {
@@ -316,14 +489,11 @@ const WhyUsContent = styled.div`
     width: 10rem;
     height: 0.25rem;
     background: ${props => props.theme.color.pegasus};
-  }
-`;
 
-const WhyUsContainer = styled.div`
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding-right: 2rem;
-  padding-left: 2rem;
-  padding-bottom: 2rem;
+    ${media('tablet')} {
+      margin: 2rem 0 0;
+    }
+  }
 `;
 
 const Featurette = styled.div`
@@ -331,27 +501,67 @@ const Featurette = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
   margin: 3rem 0 0;
+  widt
+
+  ${media('tablet')} {
+    margin: 2rem 0 0;
+  }
 `;
 
 const Feature = styled.div`
   flex: 1;
   margin: 0 3rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background: ${props => props.theme.color.white};
+  box-shadow: ${props => props.theme.shadow.regular};
 
   &:first-of-type,
   &:last-of-type {
     margin: 0;
   }
 
-  h4 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+  ${media('tablet')} {
+    flex: none;
+    width: 100%;
+    margin: 2rem 0 ;
+  }
+
+  & > div {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    h4 {
+      flex: 1;
+      margin-left: 0.5rem;
+      font-size: 1.5rem;
+
+      ${media('tablet')} {
+        width: 100%;
+        flex: none;
+        margin-top: 1rem;
+        margin-left: 0;
+        font-size: 1.25rem;
+        text-align: center;
+      }
+    }
   }
 
   p {
     line-height: 1.4;
+
+    ${media('tablet')} {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      text-align: center;
+    }
   }
 `;
 
@@ -361,7 +571,12 @@ const WhyUsDecoration = styled.img`
   right: -8rem;
   z-index: -1;
   width: 48rem;
-  opacity: 0.1;
+  opacity: 0.05;
+
+  ${media('tablet')} {
+    top: 16rem;
+    right: -30rem;
+  }
 `;
 
 const Testimonial = styled.div`
@@ -378,7 +593,6 @@ const Testimonial = styled.div`
 
 const TestimonialContent = styled.div`
   width: 100%;
-  padding: 0 5rem;
   max-width: ${props => props.theme.sizing.containerMaxWidth};
   display: flex;
   flex-wrap: wrap;
@@ -388,11 +602,19 @@ const TestimonialContent = styled.div`
   align-content: center;
   padding: 8rem 0 6rem;
 
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
+
   h1 {
     text-align: center;
     line-height: 1.4;
     color: ${props => props.theme.color.white};
     margin-bottom: 2rem;
+
+    ${media('tablet')} {
+      font-size: 1.75rem;
+    }
   }
 `;
 
@@ -419,6 +641,7 @@ const Testimony = styled.div`
   background: ${props => props.theme.color.white};
   border-radius: 1rem;
   padding: 2rem;
+  box-shadow: ${props => props.theme.shadow.regular};
 `;
 
 const Person = styled.img`
@@ -427,14 +650,79 @@ const Person = styled.img`
   object-fit: cover;
   border-radius: 8rem;
   margin-right: 2rem;
+
+  ${media('tablet')} {
+    margin: 0 0 2rem;
+  }
 `;
 
 const TestimonyContent = styled.div`
   flex: 1;
 
+  ${media('tablet')} {
+    flex: none;
+    width: 100%;
+
+    h4 {
+      text-align: center;
+      line-height: 1.4;
+    }
+  }
+
   p {
     line-height: 1.4;
     margin: 0 0 1rem;
+
+    ${media('tablet')} {
+      text-align: center;
+    }
+  }
+`;
+
+const TestimonyNavigator = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 2rem;
+
+  button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    color: ${props => props.theme.color.dark};
+    background: ${props => props.theme.color.white};
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: ${props => props.theme.shadow.regular};
+    transition: 0.25s ease all;
+    margin-right: 1rem;
+
+    &:last-of-type {
+      margin: 0;
+    }
+
+    &:hover {
+      color: ${props => props.theme.color.white};
+      background: ${props => props.theme.color.blue};
+      transition: 0.25s ease all;
+
+      & > div {
+        & > span {
+          color: ${props => props.theme.color.white};
+          transition: 0.25s ease all;
+        }
+      }
+    }
+
+    & > div {
+      & > span {
+        transition: 0.25s ease all;
+      }
+    }
   }
 `;
 
@@ -461,10 +749,18 @@ const WhatYouNeedContent = styled.div`
   align-content: center;
   padding: 5rem 0;
 
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
+
   h1 {
     text-align: center;
     line-height: 1.4;
     width: 100%;
+
+    ${media('tablet')} {
+      font-size: 1.75rem;
+    }
 
     span {
       color: ${props => props.theme.color.blueDark};
@@ -480,14 +776,30 @@ const Services = styled.div`
   align-items: stretch;
   align-content: stretch;
   margin: 3rem 0 0;
+
+  ${media('tablet')} {
+    margin: 2rem 0 0;
+  }
 `;
 
 const Service = styled.div`
   flex: 1;
   margin: 0 3rem;
   border-radius: 1rem;
-  background: ${props => props.theme.color.blue};
-  color: ${props => props.theme.color.white};
+  background: ${props => props.theme.color.white};
+  color: ${props => props.theme.color.dark};
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  &:first-of-type,
+  &:last-of-type {
+    margin: 0;
+  }
+
+  ${media('tablet')} {
+    flex: none;
+    width: 100%;
+    margin: 2rem 0 ;
+  }
 
   img {
     width: 100%;
@@ -507,13 +819,15 @@ const Service = styled.div`
     }
 
     h4 {
+      color: ${props => props.theme.color.blue};
       margin-bottom: 1rem;
     }
-  }
 
-  &:first-of-type,
-  &:last-of-type {
-    margin: 0;
+    p {
+      ${media('tablet')} {
+        font-size: 0.875rem;
+      }
+    }
   }
 `;
 
@@ -523,7 +837,12 @@ const WhatYouNeedDecoration = styled.img`
   right: -8rem;
   z-index: -1;
   width: 48rem;
-  opacity: 0.1;
+  opacity: 0.05;
+
+  ${media('tablet')} {
+    top: 16rem;
+    right: -30rem;
+  }
 `;
 
 const OurProducts = styled.div`
@@ -549,10 +868,18 @@ const OurProductsContent = styled.div`
   align-content: center;
   padding: 5rem 0;
 
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
+
   h1 {
     text-align: center;
     line-height: 1.4;
     width: 100%;
+
+    ${media('tablet')} {
+      font-size: 1.75rem;
+    }
 
     span {
       color: ${props => props.theme.color.blueDark};
@@ -567,7 +894,11 @@ const Products = styled.div`
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  margin: 2rem 0 0;
+  margin: 3rem 0 0;
+
+  ${media('tablet')} {
+    margin: 2rem 0 0;
+  }
 `;
 
 const Product = styled.div`
@@ -576,6 +907,18 @@ const Product = styled.div`
   border-radius: 1rem;
   background: ${props => props.theme.color.blue};
   color: ${props => props.theme.color.white};
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  &:first-of-type,
+  &:last-of-type {
+    margin: 0;
+  }
+
+  ${media('tablet')} {
+    flex: none;
+    width: 100%;
+    margin: 2rem 0 ;
+  }
 
   img {
     width: 100%;
@@ -588,28 +931,37 @@ const Product = styled.div`
     padding: 2rem;
 
     h4,
-    span {
+    & > div {
       width: 100%;
-      text-align: center;
-      line-height: 1.4;
     }
 
     h4 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      text-align: center;
     }
 
-    span {
-      display: block;
+    & > div {
       width: 100%;
-      padding: 1rem;
+      padding: 1rem 1rem 1rem 0;
       border-bottom: 0.1rem solid ${props => props.theme.color.whiteRGBA(0.75)};
-    }
-  }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: center;
 
-  &:first-of-type,
-  &:last-of-type {
-    margin: 0;
+      & > span {
+        flex: 1;
+        text-align: center;
+        line-height: 1.4;
+        margin-left: 1rem;
+
+        ${media('tablet')} {
+          font-size: 0.875rem;
+        }
+      }
+    }
   }
 `;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import AboutUsBgImage from '../../assets/about-us-bg.jpg';
@@ -47,24 +48,32 @@ export default class About extends React.Component {
     super();
 
     this.state = {
-      expandable: '',
+      expandable: -1,
     };
   }
 
-  closeExpandable = () => this.setState({ expandable: '' });
+  closeExpandable = () => this.setState({ expandable: -1 });
 
-  expandImage = url => this.setState({ expandable: url });
+  expandImage = index => this.setState({ expandable: index });
+
+  nextImage = () => this.setState({ expandable: this.state.expandable >= About.OFFICE_PICTURES.length - 1 ? 0 : this.state.expandable + 1 });
+
+  prevImage = () => this.setState({ expandable: this.state.expandable <= 0 ? About.OFFICE_PICTURES.length - 1 : this.state.expandable - 1 });
 
   render() {
     return (
       <Wrapper>
-        {this.state.expandable !== '' &&
+        {this.state.expandable >= 0 && (
           <ImageZoomModal
-            src={this.state.expandable}
+            src={About.OFFICE_PICTURES[this.state.expandable]}
             onClose={this.closeExpandable}
+            onNext={this.nextImage}
+            onPrev={this.prevImage}
           />
-        }
-        <NavigationBar />
+        )}
+        <Headroom>
+          <NavigationBar />
+        </Headroom>
         <Hero>
           <HeroImage src={AboutUsBgImage} />
           <h1>TENTANG KAMI</h1>
@@ -89,10 +98,10 @@ export default class About extends React.Component {
         <Office>
           <h1>KANTOR KAMI</h1>
           <OfficePictures>
-            {About.OFFICE_PICTURES.map(url => (
+            {About.OFFICE_PICTURES.map((url, index) => (
               <OfficePicture>
                 <img src={url} />
-                <button onClick={() => this.expandImage(url)}>
+                <button onClick={() => this.expandImage(index)}>
                   <span>PERBESAR</span>
                 </button>
               </OfficePicture>
@@ -129,6 +138,10 @@ const Hero = styled.div`
   align-content: center;
   background: none;
 
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
+
   h1 {
     font-size: 3rem;
     text-align: center;
@@ -136,6 +149,13 @@ const Hero = styled.div`
     margin-bottom: 4rem;
     padding: 0 2rem 1rem;
     border-bottom: 0.25rem solid ${props => props.theme.color.white};
+
+    ${media('tablet')} {
+      width: 100%;
+      font-size: 2.5rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
   }
 `;
 
@@ -174,6 +194,11 @@ const HeroBox = styled.div`
   padding: 2rem;
   background: ${props => props.theme.color.white};
   border-radius: 0.5rem;
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  ${media('tablet')} {
+    ${props => props.withMargin ? 'margin: 0 0 2rem' : 'margin: 0'};
+  }
 
   h4,
   p {
@@ -206,10 +231,20 @@ const Office = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
+  overflow: hidden;
+
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
 
   h1 {
     font-size: 2.5rem;
     color: ${props => props.theme.color.dark};
+
+    ${media('tablet')} {
+      font-size: 1.75rem;
+      text-align: center;
+    }
   }
 
   p {
@@ -225,17 +260,32 @@ const OfficePictures = styled.div`
   margin: 4rem 0 2rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
 `;
 
 const OfficePicture = styled.div`
   width: calc((100% - 6rem) / 3);
-  margin: 0 0 2rem;
+  margin: 0 3rem 3rem 0;
   height: 16rem;
   position: relative;
   overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  &:nth-of-type(3n) {
+    margin: 0 0 3rem;
+  }
+
+  ${media('tablet')} {
+    width: 100%;
+    margin: 0 0 2rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
   &:hover {
     img {
@@ -292,5 +342,5 @@ const OfficeDecoration = styled.img`
   right: -8rem;
   z-index: -1;
   width: 48rem;
-  opacity: 0.1;
+  opacity: 0.05;
 `;

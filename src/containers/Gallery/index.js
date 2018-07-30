@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import GalleryHeaderBgImg from '../../assets/gallery-header-bg.jpg';
@@ -73,24 +74,32 @@ export default class Gallery extends React.Component {
     super();
 
     this.state = {
-      expandable: '',
+      expandable: -1,
     };
   }
 
-  closeExpandable = () => this.setState({ expandable: '' });
+  closeExpandable = () => this.setState({ expandable: -1 });
 
-  expandImage = url => this.setState({ expandable: url });
+  expandImage = index => this.setState({ expandable: index });
+
+  nextImage = () => this.setState({ expandable: this.state.expandable >= Gallery.GALLERY_PICTURES.length - 1 ? 0 : this.state.expandable + 1 });
+
+  prevImage = () => this.setState({ expandable: this.state.expandable <= 0 ? Gallery.GALLERY_PICTURES.length - 1 : this.state.expandable - 1 });
 
   render() {
     return (
       <Wrapper>
-        {this.state.expandable !== '' && (
+        {this.state.expandable >= 0 && (
           <ImageZoomModal
-            src={this.state.expandable}
+            {...Gallery.GALLERY_PICTURES[this.state.expandable]}
             onClose={this.closeExpandable}
+            onNext={this.nextImage}
+            onPrev={this.prevImage}
           />
         )}
-        <NavigationBar />
+        <Headroom>
+          <NavigationBar />
+        </Headroom>
         <HeaderBg src={GalleryHeaderBgImg} />
         <Content>
           <HeaderText>
@@ -100,10 +109,10 @@ export default class Gallery extends React.Component {
             </p>
           </HeaderText>
           <Pictures>
-            {Gallery.GALLERY_PICTURES.map(url => (
+            {Gallery.GALLERY_PICTURES.map((glr, index) => (
               <Picture>
-                <img src={url} />
-                <button onClick={() => this.expandImage(url)}>
+                <img src={glr.src} />
+                <button onClick={() => this.expandImage(index)}>
                   <span>PERBESAR</span>
                 </button>
               </Picture>
@@ -136,6 +145,10 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: stretch;
   align-content: stretch;
+
+  ${media('tablet')} {
+    margin-top: 0;
+  }
 `;
 
 const HeaderBg = styled.img`
@@ -145,6 +158,12 @@ const HeaderBg = styled.img`
   left: 0;
   width: calc(30% + 8rem);
   height: 8rem;
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  ${media('tablet')} {
+    width: 100%;
+    top: 6.5rem;
+  }
 `;
 
 const HeaderText = styled.div`
@@ -155,18 +174,32 @@ const HeaderText = styled.div`
   align-items: flex-start;
   align-content: flex-start;
 
+  ${media('tablet')} {
+    width: 100%;
+    padding: 0 2rem;
+  }
+
   h1 {
     width: 100%;
     margin: 2.5rem 0 4rem;
     font-size: 3rem;
     text-align: left;
     color: ${props => props.theme.color.white};
+
+    ${media('tablet')} {
+      text-align: center;
+    }
   }
 
   p {
     font-size: 1.125rem;
     line-height: 1.4;
     color: ${props => props.theme.color.dark};
+
+    ${media('tablet')} {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
   }
 `;
 
@@ -177,6 +210,11 @@ const Pictures = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
+
+  ${media('tablet')} {
+    width: 100%;
+    padding: 0 2rem;
+  }
 `;
 
 const Picture = styled.div`
@@ -185,6 +223,17 @@ const Picture = styled.div`
   height: 12rem;
   position: relative;
   overflow: hidden;
+  box-shadow: ${props => props.theme.shadow.regular};
+  border-radius: 0.5rem;
+
+  ${media('tablet')} {
+    width: 100%;
+    margin: 0 0 2rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
   &:nth-of-type(3n) {
     margin: 0 0 2rem;

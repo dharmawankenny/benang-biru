@@ -85,3 +85,46 @@
     font-weight: 200;
     font-style: italic;
 }
+
+@font-face {
+  font-family: 'IconFont';
+  src: url('./IconFont.eot');
+  src: url('./IconFont.eot?#iefix') format('embedded-opentype'),
+       url('./IconFont.woff') format('woff'),
+       url('./IconFont.ttf') format('truetype'),
+       url('./IconFont.svg#IconFont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'IconFont';
+    src: url('./IconFont.svg#IconFont') format('svg');
+  }
+}
+
+[class^='icon-']:before, [class*=' icon-']:before,
+[class^='icon-']:after, [class*=' icon-']:after {
+  font-family: 'IconFont';
+}
+
+.icon-menu:before { content: "\f100"; }
+.icon-consultation:before { content: "\f101"; }
+.icon-legal:before { content: "\f102"; }
+.icon-cheap:before { content: "\f103"; }
+.icon-timely:before { content: "\f104"; }
+.icon-experienced:before { content: "\f105"; }
+.icon-quality:before { content: "\f106"; }
+.icon-plus:before { content: "\f107"; }
+.icon-up:before { content: "\f108"; }
+.icon-left-long:before { content: "\f109"; }
+.icon-right-long:before { content: "\f10a"; }
+.icon-down:before { content: "\f10b"; }
+.icon-close:before { content: "\f10c"; }
+.icon-checked:before { content: "\f10d"; }
+.icon-left:before { content: "\f10e"; }
+.icon-right:before { content: "\f10f"; }
+.icon-instagram:before { content: "\f110"; }
+.icon-facebook:before { content: "\f111"; }
+.icon-phone:before { content: "\f112"; }

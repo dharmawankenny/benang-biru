@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../commons/theme';
+
+import Icon from './Icon';
+
 export default class FaqAccordion extends React.Component {
   constructor() {
     super();
@@ -19,7 +23,7 @@ export default class FaqAccordion extends React.Component {
       <Wrapper>
         <Toggler onClick={this.toggle} active={this.state.showAnswer}>
           <p>{question}</p>
-          <span>+</span>
+          <Icon name="plus" size={1.5} noPadding />
         </Toggler>
         <Content show={this.state.showAnswer}>
           <p>{answer}</p>
@@ -31,12 +35,13 @@ export default class FaqAccordion extends React.Component {
 
 const Wrapper = styled.div`
   width: 100%;
+  box-shadow: ${props => props.theme.shadow.regular};
 `;
 
 const Toggler = styled.button`
   width: 100%;
   cursor: pointer;
-  background: ${props => props.theme.color.blue};
+  background: ${props => props.theme.color.white};
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -44,22 +49,31 @@ const Toggler = styled.button`
   align-content: center;
   padding: 1rem 2rem;
 
-  p,
-  span {
-    font-size: 1.25rem;
-    line-height: 1;
-    text-align: left;
-    color: ${props => props.theme.color.white};
+  ${media('tablet')} {
+    padding: 1rem 1.5rem;
   }
 
   p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: left;
+    color: ${props => props.theme.color.blue};
     flex: 1;
+
+    ${media('tablet')} {
+      font-size: 1rem;
+    }
   }
 
-  span {
-    font-size: 2rem;
+  & > div {
     transform: rotate(${props => props.active ? '45deg' : '0deg'});
     transition: 0.25s ease transform;
+
+    & > span {
+      ${media('tablet')} {
+        font-size: 0.875rem;
+      }
+    }
   }
 `;
 
@@ -71,11 +85,16 @@ const Content = styled.div`
   overflow: hidden;
 
   p {
-    padding: 2rem;
+    padding: 1rem 2rem 2rem;
     width: 100%;
     font-size: 1rem;
     line-height: 1.4;
     text-align: left;
     color: ${props => props.theme.color.dark};
+
+    ${media('tablet')} {
+      font-size: 0.875rem;
+      padding: 0 1.5rem 1.5rem;
+    }
   }
 `;

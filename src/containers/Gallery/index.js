@@ -20,6 +20,46 @@ export default class Gallery extends React.Component {
       src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
       captionText: 'Pepsi'
     },
+    {
+      src: 'https://marketingweek.imgix.net/content/uploads/2017/03/23130329/Coca-cola_750.jpg',
+      captionText: 'Coca Cola'
+    },
+    {
+      src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
+      captionText: 'Pepsi'
+    },
+    {
+      src: 'https://marketingweek.imgix.net/content/uploads/2017/03/23130329/Coca-cola_750.jpg',
+      captionText: 'Coca Cola'
+    },
+    {
+      src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
+      captionText: 'Pepsi'
+    },
+    {
+      src: 'https://marketingweek.imgix.net/content/uploads/2017/03/23130329/Coca-cola_750.jpg',
+      captionText: 'Coca Cola'
+    },
+    {
+      src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
+      captionText: 'Pepsi'
+    },
+    {
+      src: 'https://marketingweek.imgix.net/content/uploads/2017/03/23130329/Coca-cola_750.jpg',
+      captionText: 'Coca Cola'
+    },
+    {
+      src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
+      captionText: 'Pepsi'
+    },
+    {
+      src: 'https://marketingweek.imgix.net/content/uploads/2017/03/23130329/Coca-cola_750.jpg',
+      captionText: 'Coca Cola'
+    },
+    {
+      src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
+      captionText: 'Pepsi'
+    },
   ];
 
   constructor() {

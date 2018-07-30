@@ -13,10 +13,15 @@ import NavigationBar from '../../components/NavigationBar';
 export default class About extends React.Component {
   static OFFICE_PICTURES = [
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    'https://cdn.shopify.com/s/files/1/0814/0961/products/1_04c2f03c-cf5a-412c-9f0c-21a5cfede2e0_1024x1024.jpg?v=1531160514',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    'https://cdn.shopify.com/s/files/1/0814/0961/products/1_04c2f03c-cf5a-412c-9f0c-21a5cfede2e0_1024x1024.jpg?v=1531160514',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    'https://cdn.shopify.com/s/files/1/0814/0961/products/1_04c2f03c-cf5a-412c-9f0c-21a5cfede2e0_1024x1024.jpg?v=1531160514',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    'https://cdn.shopify.com/s/files/1/0814/0961/products/1_04c2f03c-cf5a-412c-9f0c-21a5cfede2e0_1024x1024.jpg?v=1531160514',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    'https://cdn.shopify.com/s/files/1/0814/0961/products/1_04c2f03c-cf5a-412c-9f0c-21a5cfede2e0_1024x1024.jpg?v=1531160514',
     'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
   ];
 
@@ -24,23 +29,29 @@ export default class About extends React.Component {
     super();
 
     this.state = {
-      expandable: '',
+      expandable: -1,
     };
   }
 
-  closeExpandable = () => this.setState({ expandable: '' });
+  closeExpandable = () => this.setState({ expandable: -1 });
 
-  expandImage = url => this.setState({ expandable: url });
+  expandImage = index => this.setState({ expandable: index });
+
+  nextImage = () => this.setState({ expandable: this.state.expandable >= About.OFFICE_PICTURES.length - 1 ? 0 : this.state.expandable + 1 });
+
+  prevImage = () => this.setState({ expandable: this.state.expandable <= 0 ? About.OFFICE_PICTURES.length - 1 : this.state.expandable - 1 });
 
   render() {
     return (
       <Wrapper>
-        {this.state.expandable !== '' &&
+        {this.state.expandable >= 0 && (
           <ImageZoomModal
-            src={this.state.expandable}
+            src={About.OFFICE_PICTURES[this.state.expandable]}
             onClose={this.closeExpandable}
+            onNext={this.nextImage}
+            onPrev={this.prevImage}
           />
-        }
+        )}
         <Headroom>
           <NavigationBar />
         </Headroom>
@@ -61,10 +72,10 @@ export default class About extends React.Component {
         <Office>
           <h1>KANTOR KAMI</h1>
           <OfficePictures>
-            {About.OFFICE_PICTURES.map(url => (
+            {About.OFFICE_PICTURES.map((url, index) => (
               <OfficePicture>
                 <img src={url} />
-                <button onClick={() => this.expandImage(url)}>
+                <button onClick={() => this.expandImage(index)}>
                   <span>PERBESAR</span>
                 </button>
               </OfficePicture>
@@ -223,7 +234,7 @@ const OfficePictures = styled.div`
   margin: 4rem 0 2rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
 `;

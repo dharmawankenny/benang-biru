@@ -5,6 +5,7 @@ import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import SlideShowOneImage from '../../assets/homepage-slideshow-1.jpg';
+import SlideShowTwoImage from '../../assets/homepage-slideshow-2.jpg';
 import TestimonyBgImg from '../../assets/testimony-bg.jpg';
 import ProductBgImg from '../../assets/homepage-product-bg.jpg';
 import ShirtImg from '../../assets/shirt.jpg';
@@ -21,6 +22,32 @@ import NavigationBar from '../../components/NavigationBar';
 import AuthState from '../../states/AuthState';
 
 export default class Home extends React.Component {
+  static HERO_SLIDER = [
+    {
+      title: 'TERIMA PESANAN',
+      text: 'Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.',
+      bg: SlideShowOneImage,
+    },
+    {
+      title: 'KUALITAS TERBAIK',
+      text: 'Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.',
+      bg: SlideShowTwoImage,
+    },
+  ];
+
+  static TESTIMONIES = [
+    {
+      picture: 'https://metrouk2.files.wordpress.com/2018/03/621651482-e1520869019624.jpg',
+      name: 'Jeremy Clarkson - The Grand Tour',
+      quote: 'A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.',
+    },
+    {
+      picture: 'https://www.indiewire.com/wp-content/uploads/2016/12/richard-hammond.jpg?w=780',
+      name: 'Richard Hammond - The Grand Tour',
+      quote: 'A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.',
+    },
+  ];
+
   constructor() {
     super();
 
@@ -29,6 +56,12 @@ export default class Home extends React.Component {
       testimonyPos: 0,
     };
   }
+
+  nextSlider = () => this.setState({ sliderPos: this.state.sliderPos >= Home.HERO_SLIDER.length - 1 ? 0 : this.state.sliderPos + 1 });
+
+  nextTestimony = () => this.setState({ testimonyPos: this.state.testimonyPos >= Home.TESTIMONIES.length - 1 ? 0 : this.state.testimonyPos + 1 });
+
+  prevTestimony = () => this.setState({ testimonyPos: this.state.testimonyPos <= 0 ? Home.TESTIMONIES.length - 1 : this.state.testimonyPos - 1 });
 
   render() {
     return (
@@ -39,12 +72,15 @@ export default class Home extends React.Component {
           </Headroom>
         </HeadroomWrapper>
         <Hero>
-          <HeroImage src={SlideShowOneImage} />
+          <HeroImage src={Home.HERO_SLIDER[this.state.sliderPos].bg} />
           <HeroContent>
             <NavigationBar transparent />
             <HeroText>
-              <h1>TERIMA PESANAN</h1>
-              <p>Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.</p>
+              <h1>{Home.HERO_SLIDER[this.state.sliderPos].title}</h1>
+              <p>{Home.HERO_SLIDER[this.state.sliderPos].text}</p>
+              <button onClick={this.nextSlider}>
+                Selanjutnya<Icon name="right-long" size={1} noPadding />
+              </button>
             </HeroText>
           </HeroContent>
         </Hero>
@@ -105,12 +141,20 @@ export default class Home extends React.Component {
           <TestimonialContent>
             <h1>PELANGGAN KAMI TELAH<br />MEMBUKTIKANNYA</h1>
             <Testimony>
-              <Person src="https://metrouk2.files.wordpress.com/2018/03/621651482-e1520869019624.jpg" />
+              <Person src={Home.TESTIMONIES[this.state.testimonyPos].picture} />
               <TestimonyContent>
-                <p>A suspendisse condimentum diam ac sagittis scelerisque sagittis phasellus velit metus vitae nostra vitae ante facilisi sodales et curae.Dis est natoque lobortis neque a.</p>
-                <h4>Jeremy Clarkson - The Grand Tour</h4>
+                <p>{Home.TESTIMONIES[this.state.testimonyPos].quote}</p>
+                <h4>{Home.TESTIMONIES[this.state.testimonyPos].name}</h4>
               </TestimonyContent>
             </Testimony>
+            <TestimonyNavigator>
+              <button onClick={this.prevTestimony}>
+                <Icon name="left-long" size={1} color="dark" noPadding />
+              </button>
+              <button onClick={this.nextTestimony}>
+                <Icon name="right-long" size={1} color="dark" noPadding />
+              </button>
+            </TestimonyNavigator>
           </TestimonialContent>
         </Testimonial>
         <WhatYouNeed>
@@ -306,6 +350,7 @@ const HeroImage = styled.img`
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  transition: 0.25s ease all;
 `;
 
 const HeroContent = styled.div`
@@ -335,6 +380,42 @@ const HeroText = styled.div`
     height: auto;
     margin-top: 30vh;
     padding: 0 2rem;
+  }
+
+  button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    color: ${props => props.theme.color.dark};
+    background: ${props => props.theme.color.white};
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: ${props => props.theme.shadow.regular};
+    transition: 0.25s ease all;
+    margin-top: 2rem;
+
+    &:hover {
+      color: ${props => props.theme.color.white};
+      background: ${props => props.theme.color.blue};
+      transition: 0.25s ease all;
+
+      & > div {
+        & > span {
+          color: ${props => props.theme.color.white};
+          transition: 0.25s ease all;
+        }
+      }
+    }
+
+    & > div {
+      margin-left: 0.5rem;
+
+      & > span {
+        transition: 0.25s ease all;
+      }
+    }
   }
 
   h1,
@@ -594,6 +675,53 @@ const TestimonyContent = styled.div`
 
     ${media('tablet')} {
       text-align: center;
+    }
+  }
+`;
+
+const TestimonyNavigator = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 2rem;
+
+  button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    color: ${props => props.theme.color.dark};
+    background: ${props => props.theme.color.white};
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    box-shadow: ${props => props.theme.shadow.regular};
+    transition: 0.25s ease all;
+    margin-right: 1rem;
+
+    &:last-of-type {
+      margin: 0;
+    }
+
+    &:hover {
+      color: ${props => props.theme.color.white};
+      background: ${props => props.theme.color.blue};
+      transition: 0.25s ease all;
+
+      & > div {
+        & > span {
+          color: ${props => props.theme.color.white};
+          transition: 0.25s ease all;
+        }
+      }
+    }
+
+    & > div {
+      & > span {
+        transition: 0.25s ease all;
+      }
     }
   }
 `;

@@ -12,40 +12,41 @@ import NavigationBar from '../../components/NavigationBar';
 
 export default class Gallery extends React.Component {
   static GALLERY_PICTURES = [
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
-    'https://www.qerja.com/journal/wp-content/uploads/teknopedia-kantor-traveloka-5720b87f467e6.jpg',
+    {
+      src: 'https://marketingweek.imgix.net/content/uploads/2017/03/23130329/Coca-cola_750.jpg',
+      captionText: 'Coca Cola'
+    },
+    {
+      src: 'http://images.marketing-interactive.com.s3.amazonaws.com/wp-content/uploads/2017/04/Pepsi-700x420.jpg',
+      captionText: 'Pepsi'
+    },
   ];
 
   constructor() {
     super();
 
     this.state = {
-      expandable: '',
+      expandable: -1,
     };
   }
 
-  closeExpandable = () => this.setState({ expandable: '' });
+  closeExpandable = () => this.setState({ expandable: -1 });
 
-  expandImage = url => this.setState({ expandable: url });
+  expandImage = index => this.setState({ expandable: index });
+
+  nextImage = () => this.setState({ expandable: this.state.expandable >= Gallery.GALLERY_PICTURES.length - 1 ? 0 : this.state.expandable + 1 });
+
+  prevImage = () => this.setState({ expandable: this.state.expandable <= 0 ? Gallery.GALLERY_PICTURES.length - 1 : this.state.expandable - 1 });
 
   render() {
     return (
       <Wrapper>
-        {this.state.expandable !== '' && (
+        {this.state.expandable >= 0 && (
           <ImageZoomModal
-            src={this.state.expandable}
+            {...Gallery.GALLERY_PICTURES[this.state.expandable]}
             onClose={this.closeExpandable}
+            onNext={this.nextImage}
+            onPrev={this.prevImage}
           />
         )}
         <Headroom>
@@ -60,10 +61,10 @@ export default class Gallery extends React.Component {
             </p>
           </HeaderText>
           <Pictures>
-            {Gallery.GALLERY_PICTURES.map(url => (
+            {Gallery.GALLERY_PICTURES.map((glr, index) => (
               <Picture>
-                <img src={url} />
-                <button onClick={() => this.expandImage(url)}>
+                <img src={glr.src} />
+                <button onClick={() => this.expandImage(index)}>
                   <span>PERBESAR</span>
                 </button>
               </Picture>

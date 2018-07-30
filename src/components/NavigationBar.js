@@ -172,7 +172,7 @@ const MobileNavLinks = styled.div`
     left: 1rem;
     width: calc(100% - 2rem);
     background: ${props => props.theme.color.white};
-    padding: ${props => props.show ? '1rem 1rem 2rem' : '0 1rem'};
+    padding: ${props => props.show ? '1rem' : '0 1rem'};
     border-radius: 0.25rem;
     max-height: ${props => props.show ? '25rem' : '0'};
     transition: 0.25s ease all;
@@ -199,5 +199,6 @@ const MobileNavLink = styled(Link)`
 
   &:last-of-type {
     border-bottom: none;
+    padding: 1rem 0 0;
   }
 `;

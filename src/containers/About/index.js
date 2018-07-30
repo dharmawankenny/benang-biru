@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import AboutUsBgImage from '../../assets/about-us-bg.jpg';
@@ -40,7 +41,9 @@ export default class About extends React.Component {
             onClose={this.closeExpandable}
           />
         }
-        <NavigationBar />
+        <Headroom>
+          <NavigationBar />
+        </Headroom>
         <Hero>
           <HeroImage src={AboutUsBgImage} />
           <h1>TENTANG KAMI</h1>
@@ -98,6 +101,10 @@ const Hero = styled.div`
   align-content: center;
   background: none;
 
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
+
   h1 {
     font-size: 3rem;
     text-align: center;
@@ -105,6 +112,13 @@ const Hero = styled.div`
     margin-bottom: 4rem;
     padding: 0 2rem 1rem;
     border-bottom: 0.25rem solid ${props => props.theme.color.white};
+
+    ${media('tablet')} {
+      width: 100%;
+      font-size: 2.5rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
   }
 `;
 
@@ -143,6 +157,11 @@ const HeroBox = styled.div`
   padding: 2rem;
   background: ${props => props.theme.color.white};
   border-radius: 0.5rem;
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  ${media('tablet')} {
+    ${props => props.withMargin ? 'margin: 0 0 2rem' : 'margin: 0'};
+  }
 
   h4,
   p {
@@ -175,10 +194,20 @@ const Office = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
+  overflow: hidden;
+
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
 
   h1 {
     font-size: 2.5rem;
     color: ${props => props.theme.color.dark};
+
+    ${media('tablet')} {
+      font-size: 1.75rem;
+      text-align: center;
+    }
   }
 
   p {
@@ -201,10 +230,25 @@ const OfficePictures = styled.div`
 
 const OfficePicture = styled.div`
   width: calc((100% - 6rem) / 3);
-  margin: 0 0 2rem;
+  margin: 0 3rem 3rem 0;
   height: 16rem;
   position: relative;
   overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  &:nth-of-type(3n) {
+    margin: 0 0 3rem;
+  }
+
+  ${media('tablet')} {
+    width: 100%;
+    margin: 0 0 2rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
   &:hover {
     img {
@@ -261,5 +305,5 @@ const OfficeDecoration = styled.img`
   right: -8rem;
   z-index: -1;
   width: 48rem;
-  opacity: 0.1;
+  opacity: 0.05;
 `;

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headroom from 'react-headroom';
 
 import FaqHeaderBgImg from '../../assets/faq-header-bg.jpg';
-import BgDecoratorImg from '../../assets/bg-decorator.jpg';
+import LogoFaceImage from '../../assets/logoface.png';
 
 import { media } from '../../commons/theme';
 
@@ -57,9 +58,12 @@ export default class Faq extends React.Component {
   render() {
     return (
       <Wrapper>
-        <NavigationBar />
+        <Headroom>
+          <NavigationBar />
+        </Headroom>
         <Banner src={FaqHeaderBgImg} text="FAQ" />
         <Content>
+          <Decoration src={LogoFaceImage} />
           <Container>
             {Faq.QNA.map(qna => <FaqAccordion {...qna} />)}
           </Container>
@@ -80,13 +84,31 @@ const Wrapper = styled.div`
 const Content = styled.div`
   width: 100%;
   padding: 6rem 0;
-  background: url('${BgDecoratorImg}') no-repeat center top;
-  background-size: 100vw auto;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   align-content: flex-start;
+  overflow: hidden;
+
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
+`;
+
+const Decoration = styled.img`
+  position: absolute;
+  top: 8rem;
+  right: -8rem;
+  z-index: -1;
+  width: 48rem;
+  opacity: 0.05;
+
+  ${media('tablet')} {
+    top: 16rem;
+    right: -30rem;
+  }
 `;
 
 const Container = styled.div`

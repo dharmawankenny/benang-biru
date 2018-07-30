@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import GalleryHeaderBgImg from '../../assets/gallery-header-bg.jpg';
@@ -47,7 +48,9 @@ export default class Gallery extends React.Component {
             onClose={this.closeExpandable}
           />
         )}
-        <NavigationBar />
+        <Headroom>
+          <NavigationBar />
+        </Headroom>
         <HeaderBg src={GalleryHeaderBgImg} />
         <Content>
           <HeaderText>
@@ -93,6 +96,10 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: stretch;
   align-content: stretch;
+
+  ${media('tablet')} {
+    margin-top: 0;
+  }
 `;
 
 const HeaderBg = styled.img`
@@ -102,6 +109,12 @@ const HeaderBg = styled.img`
   left: 0;
   width: calc(30% + 8rem);
   height: 8rem;
+  box-shadow: ${props => props.theme.shadow.regular};
+
+  ${media('tablet')} {
+    width: 100%;
+    top: 6.5rem;
+  }
 `;
 
 const HeaderText = styled.div`
@@ -112,18 +125,32 @@ const HeaderText = styled.div`
   align-items: flex-start;
   align-content: flex-start;
 
+  ${media('tablet')} {
+    width: 100%;
+    padding: 0 2rem;
+  }
+
   h1 {
     width: 100%;
     margin: 2.5rem 0 4rem;
     font-size: 3rem;
     text-align: left;
     color: ${props => props.theme.color.white};
+
+    ${media('tablet')} {
+      text-align: center;
+    }
   }
 
   p {
     font-size: 1.125rem;
     line-height: 1.4;
     color: ${props => props.theme.color.dark};
+
+    ${media('tablet')} {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
   }
 `;
 
@@ -134,6 +161,11 @@ const Pictures = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
+
+  ${media('tablet')} {
+    width: 100%;
+    padding: 0 2rem;
+  }
 `;
 
 const Picture = styled.div`
@@ -142,6 +174,17 @@ const Picture = styled.div`
   height: 12rem;
   position: relative;
   overflow: hidden;
+  box-shadow: ${props => props.theme.shadow.regular};
+  border-radius: 0.5rem;
+
+  ${media('tablet')} {
+    width: 100%;
+    margin: 0 0 2rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 
   &:nth-of-type(3n) {
     margin: 0 0 2rem;

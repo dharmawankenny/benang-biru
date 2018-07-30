@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Headroom from 'react-headroom';
 
 import ProductsHeaderBgImg from '../../assets/products-header-bg.jpg';
 
@@ -12,7 +13,9 @@ export default class Order extends React.Component {
   render() {
     return (
       <Wrapper>
-        <NavigationBar />
+        <Headroom>
+          <NavigationBar />
+        </Headroom>
         <Banner src={ProductsHeaderBgImg} text="PEMESANAN" />
         <Content>
           <Text>
@@ -84,10 +87,18 @@ const Content = styled.div`
   align-items: flex-start;
   align-content: flex-start;
   padding: 6rem 0;
+
+  ${media('tablet')} {
+    padding: 4rem 2rem;
+  }
 `;
 
 const Text = styled.p`
   font-size: 1.25rem;
   line-height: 2;
   text-align: left;
+
+  ${media('tablet')} {
+    font-size: 1rem;
+  }
 `;

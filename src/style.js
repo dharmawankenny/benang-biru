@@ -62,6 +62,12 @@ injectGlobal`
     font-family: ${theme.font.heading};
   }
 
+  .headroom-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+  }
+
   .swal-overlay {
     background-color: rgba(55, 55, 55, 0.75);
   }

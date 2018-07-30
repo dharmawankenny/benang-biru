@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../commons/theme';
+
 const Banner = ({ src, text }) => (
   <Wrapper>
     <Bg src={src} />
@@ -39,6 +41,10 @@ const Header = styled.h1`
   line-height: 1.4;
   text-align: center;
   text-transform: uppercase;
+
+  ${media('tablet')} {
+    font-size: 2.5rem;
+  }
 `;
 
 export default Banner;

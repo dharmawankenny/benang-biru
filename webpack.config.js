@@ -37,7 +37,37 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|ico|mp4|webm|eot|woff|woff2|ttf)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: path.join('assets', '[name].[hash].[ext]'),
+            },
+          },
+          {
+            loader: 'img-loader',
+            options: {
+              plugins: [
+                require('imagemin-gifsicle')({
+                  interlaced: false,
+                }),
+                require('imagemin-mozjpeg')({
+                  quality: 65,
+                  progressive: true,
+                  arithmetic: false,
+                }),
+                require('imagemin-pngquant')({
+                  speed: 10,
+                }),
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(ico|mp4|webm|eot|woff|woff2|ttf)$/,
         use: [
           {
             loader: 'url-loader',

@@ -196,4 +196,8 @@ const MobileNavLink = styled(Link)`
   border-bottom: 0.1rem solid #EEE;
   font-size: 1rem;
   line-height: 1;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `;

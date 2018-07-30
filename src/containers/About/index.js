@@ -10,38 +10,38 @@ import { media } from '../../commons/theme';
 import ImageZoomModal from '../../components/ImageZoomModal';
 import NavigationBar from '../../components/NavigationBar';
 
-import gallery1 from '../../assets/office/1.jpg';
-import gallery2 from '../../assets/office/2.jpg';
-import gallery3 from '../../assets/office/3.jpg';
-import gallery4 from '../../assets/office/4.jpg';
-import gallery5 from '../../assets/office/5.jpg';
-import gallery6 from '../../assets/office/6.jpg';
-import gallery7 from '../../assets/office/7.jpg';
-import gallery8 from '../../assets/office/8.jpg';
-import gallery9 from '../../assets/office/9.jpg';
-import gallery10 from '../../assets/office/10.jpg';
-import gallery11 from '../../assets/office/11.jpg';
-import gallery12 from '../../assets/office/12.jpg';
-import gallery13 from '../../assets/office/13.jpg';
-import gallery14 from '../../assets/office/14.jpg';
-import gallery15 from '../../assets/office/15.jpg';
-import gallery16 from '../../assets/office/16.jpg';
-import gallery17 from '../../assets/office/17.jpg';
-import gallery18 from '../../assets/office/18.jpg';
-import gallery19 from '../../assets/office/19.jpg';
-import gallery20 from '../../assets/office/20.jpg';
-import gallery21 from '../../assets/office/21.jpg';
-import gallery22 from '../../assets/office/22.jpg';
-import gallery23 from '../../assets/office/23.jpg';
-import gallery24 from '../../assets/office/24.jpg';
-import gallery25 from '../../assets/office/25.jpg';
+import office1 from '../../assets/office/1.jpg';
+import office2 from '../../assets/office/2.jpg';
+import office3 from '../../assets/office/3.jpg';
+import office4 from '../../assets/office/4.jpg';
+import office5 from '../../assets/office/5.jpg';
+import office6 from '../../assets/office/6.jpg';
+import office7 from '../../assets/office/7.jpg';
+import office8 from '../../assets/office/8.jpg';
+import office9 from '../../assets/office/9.jpg';
+import office10 from '../../assets/office/10.jpg';
+import office11 from '../../assets/office/11.jpg';
+import office12 from '../../assets/office/12.jpg';
+import office13 from '../../assets/office/13.jpg';
+import office14 from '../../assets/office/14.jpg';
+import office15 from '../../assets/office/15.jpg';
+import office16 from '../../assets/office/16.jpg';
+import office17 from '../../assets/office/17.jpg';
+import office18 from '../../assets/office/18.jpg';
+import office19 from '../../assets/office/19.jpg';
+import office20 from '../../assets/office/20.jpg';
+import office21 from '../../assets/office/21.jpg';
+import office22 from '../../assets/office/22.jpg';
+import office23 from '../../assets/office/23.jpg';
+import office24 from '../../assets/office/24.jpg';
+import office25 from '../../assets/office/25.jpg';
 
 
 export default class About extends React.Component {
   static OFFICE_PICTURES = [
-    gallery1,gallery2,gallery3,gallery4,gallery5,gallery6,gallery7,gallery8,gallery9,gallery10,
-    gallery11,gallery12,gallery13,gallery14,gallery15,gallery16,gallery17,gallery18,gallery19,gallery20,
-    gallery21,gallery22,gallery23,gallery24,gallery25,
+    office1,office2,office3,office4,office5,office6,office7,office8,office9,office10,
+    office11,office12,office13,office14,office15,office16,office17,office18,office19,office20,
+    office21,office22,office23,office24,office25,
   ];
 
   constructor() {

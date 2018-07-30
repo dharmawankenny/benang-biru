@@ -28,26 +28,29 @@ const Footer = () => (
         </p>
       </Section>
       <Section flex={2} centerPiece>
-        <h4>LAYANAN KAMI</h4>
-        <p>
-          - lorem
-          <br />
-          - ipsum
-          <br />
-          - dolor
-          <br />
-          - Sit Amet
-          <br />
-        </p>
+        <h4>HUBUNGI KAMI</h4>
+          <a className="external" href="tel:02220569330" target="_blank">
+            <Icon name="phone" size={1} background="blue" color="white" />
+            <span>(022)20569330</span>
+          </a>
+          <a className="external" href="tel:+6287800181990" target="_blank">
+            <Icon name="phone" size={1} background="blue" color="white" />
+            <span>+6287800181990</span>
+          </a>
+          <a className="external" href="@benangbirubdg" target="_blank">
+            <Icon name="phone" size={1} background="blue" color="white" />
+            <span>@benangbirubdg</span>
+          </a>
       </Section>
       <Section flex={2}>
-        <a className="external" href="tel:+62833322221111" target="_blank">
+      <h4> </h4>
+        <a className="external" href="info@benangbiru.com" target="_blank">
           <Icon name="phone" size={1} background="blue" color="white" />
-          <span>+62833322221111</span>
+          <span>info@benangbiru.com</span>
         </a>
-        <a className="external" href="https://www.instagram.com/benangbirubdg/" target="_blank">
+        <a className="external" href="https://www.facebook.com/benangbirubdg/" target="_blank">
           <Icon name="facebook" size={1} background="blue" color="white" />
-          <span>Benang Biru Bandung</span>
+          <span>Benang Biru Garmindo</span>
         </a>
         <a className="external" href="https://www.instagram.com/benangbirubdg/" target="_blank">
           <Icon name="instagram" size={1} background="blue" color="white" />

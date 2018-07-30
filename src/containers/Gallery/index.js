@@ -91,7 +91,7 @@ export default class Gallery extends React.Component {
       <Wrapper>
         {this.state.expandable >= 0 && (
           <ImageZoomModal
-            {...Gallery.GALLERY_PICTURES[this.state.expandable]}
+            src={Gallery.GALLERY_PICTURES[this.state.expandable]}
             onClose={this.closeExpandable}
             onNext={this.nextImage}
             onPrev={this.prevImage}
@@ -111,7 +111,7 @@ export default class Gallery extends React.Component {
           <Pictures>
             {Gallery.GALLERY_PICTURES.map((glr, index) => (
               <Picture>
-                <img src={glr.src} />
+                <img src={glr} />
                 <button onClick={() => this.expandImage(index)}>
                   <span>PERBESAR</span>
                 </button>

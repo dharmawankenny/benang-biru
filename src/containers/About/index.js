@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import AboutUsBgImage from '../../assets/about-us-bg.jpg';
@@ -71,9 +70,7 @@ export default class About extends React.Component {
             onPrev={this.prevImage}
           />
         )}
-        <Headroom>
-          <NavigationBar />
-        </Headroom>
+        <NavigationBar />
         <Hero>
           <HeroImage src={AboutUsBgImage} />
           <h1>TENTANG KAMI</h1>

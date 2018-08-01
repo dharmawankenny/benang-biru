@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Headroom from 'react-headroom';
 
 import ProductsHeaderBgImg from '../../assets/products-header-bg.jpg';
 import LogoFaceImage from '../../assets/logoface.png';
@@ -16,9 +15,7 @@ export default class Products extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Headroom>
-          <NavigationBar />
-        </Headroom>
+        <NavigationBar />
         <Banner src={ProductsHeaderBgImg} text="INFORMASI PRODUK" />
         <Content>
           <Decoration src={LogoFaceImage} />

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Headroom from 'react-headroom';
 
 import FaqHeaderBgImg from '../../assets/faq-header-bg.jpg';
 import LogoFaceImage from '../../assets/logoface.png';
@@ -38,9 +37,7 @@ export default class Faq extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Headroom>
-          <NavigationBar />
-        </Headroom>
+        <NavigationBar />
         <Banner src={FaqHeaderBgImg} text="FAQ" />
         <Content>
           <Decoration src={LogoFaceImage} />

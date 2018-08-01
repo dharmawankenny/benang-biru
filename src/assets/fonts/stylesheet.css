@@ -109,22 +109,25 @@
   font-family: 'IconFont';
 }
 
-.icon-menu:before { content: "\f100"; }
-.icon-consultation:before { content: "\f101"; }
-.icon-legal:before { content: "\f102"; }
-.icon-cheap:before { content: "\f103"; }
-.icon-timely:before { content: "\f104"; }
-.icon-experienced:before { content: "\f105"; }
-.icon-quality:before { content: "\f106"; }
-.icon-plus:before { content: "\f107"; }
-.icon-up:before { content: "\f108"; }
+.icon-phone:before { content: "\f100"; }
+.icon-facebook:before { content: "\f101"; }
+.icon-instagram:before { content: "\f102"; }
+.icon-right:before { content: "\f103"; }
+.icon-left:before { content: "\f104"; }
+.icon-checked:before { content: "\f105"; }
+.icon-close:before { content: "\f106"; }
+.icon-down:before { content: "\f107"; }
+.icon-right-long:before { content: "\f108"; }
 .icon-left-long:before { content: "\f109"; }
-.icon-right-long:before { content: "\f10a"; }
-.icon-down:before { content: "\f10b"; }
-.icon-close:before { content: "\f10c"; }
-.icon-checked:before { content: "\f10d"; }
-.icon-left:before { content: "\f10e"; }
-.icon-right:before { content: "\f10f"; }
-.icon-instagram:before { content: "\f110"; }
-.icon-facebook:before { content: "\f111"; }
-.icon-phone:before { content: "\f112"; }
+.icon-up:before { content: "\f10a"; }
+.icon-plus:before { content: "\f10b"; }
+.icon-quality:before { content: "\f10c"; }
+.icon-experienced:before { content: "\f10d"; }
+.icon-timely:before { content: "\f10e"; }
+.icon-cheap:before { content: "\f10f"; }
+.icon-legal:before { content: "\f110"; }
+.icon-consultation:before { content: "\f111"; }
+.icon-menu:before { content: "\f112"; }
+.icon-line:before { content: "\f113"; }
+.icon-email:before { content: "\f114"; }
+.icon-whatsapp:before { content: "\f115"; }

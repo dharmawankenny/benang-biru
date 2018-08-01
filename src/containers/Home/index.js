@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Subscribe } from 'unstated';
-import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import SlideShowOneImage from '../../assets/homepage-slideshow-1.jpg';
@@ -66,11 +65,6 @@ export default class Home extends React.Component {
   render() {
     return (
       <Wrapper>
-        <HeadroomWrapper>
-          <Headroom>
-            <NavigationBar />
-          </Headroom>
-        </HeadroomWrapper>
         <Hero>
           <HeroImage src={Home.HERO_SLIDER[this.state.sliderPos].bg} />
           <HeroContent>

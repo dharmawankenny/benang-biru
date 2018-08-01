@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Headroom from 'react-headroom';
 
 import NavigationBar from '../../components/NavigationBar';
 
@@ -8,9 +7,7 @@ import { media } from '../../commons/theme';
 
 const NotFound = () => (
   <Wrapper>
-    <Headroom>
-      <NavigationBar />
-    </Headroom>
+    <NavigationBar />
     <h4>404, Not Found :(</h4>
   </Wrapper>
 );

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Headroom from 'react-headroom';
 
 import LogoFaceImage from '../../assets/logoface.png';
 import GalleryHeaderBgImg from '../../assets/gallery-header-bg.jpg';
@@ -97,9 +96,7 @@ export default class Gallery extends React.Component {
             onPrev={this.prevImage}
           />
         )}
-        <Headroom>
-          <NavigationBar />
-        </Headroom>
+        <NavigationBar />
         <HeaderBg src={GalleryHeaderBgImg} />
         <Content>
           <HeaderText>

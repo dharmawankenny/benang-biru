@@ -186,14 +186,16 @@ const HeroBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: center;
+  align-content: center;
   padding: 2rem;
   background: ${props => props.theme.color.white};
   border-radius: 0.5rem;
   box-shadow: ${props => props.theme.shadow.regular};
 
   ${media('tablet')} {
+    width: 100%;
+    flex: none;
     ${props => props.withMargin ? 'margin: 0 0 2rem' : 'margin: 0'};
   }
 

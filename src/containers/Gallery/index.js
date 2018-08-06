@@ -59,6 +59,14 @@ import gallery47 from '../../assets/gallery/47.jpg';
 import gallery48 from '../../assets/gallery/48.jpg';
 import gallery49 from '../../assets/gallery/49.jpg';
 import gallery50 from '../../assets/gallery/50.jpg';
+import gallery51 from '../../assets/gallery/51.jpg';
+import gallery52 from '../../assets/gallery/52.jpg';
+import gallery53 from '../../assets/gallery/53.jpg';
+import gallery54 from '../../assets/gallery/54.jpg';
+import gallery55 from '../../assets/gallery/55.jpg';
+import gallery56 from '../../assets/gallery/56.jpg';
+import gallery57 from '../../assets/gallery/57.jpg';
+
 
 export default class Gallery extends React.Component {
   static GALLERY_PICTURES = [
@@ -67,6 +75,7 @@ export default class Gallery extends React.Component {
     gallery21,gallery22,gallery23,gallery24,gallery25,gallery26,gallery27,gallery28,gallery29,gallery30,
     gallery31,gallery32,gallery33,gallery34,gallery35,gallery36,gallery37,gallery38,gallery39,gallery40,
     gallery41,gallery42,gallery43,gallery44,gallery45,gallery46,gallery47,gallery48,gallery49,gallery50,
+    gallery51,gallery52,gallery53,gallery54,gallery55,gallery56,gallery57,
   ];
 
   constructor() {

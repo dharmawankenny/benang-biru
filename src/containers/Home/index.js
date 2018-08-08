@@ -211,7 +211,7 @@ export default class Home extends React.Component {
               <Product>
                 <img src={ShirtImg} />
                 <div>
-                  <h4>Rp 50.000,-</h4>
+                  <h4>Start from Rp 50.000,-</h4>
                   <div>
                     <Icon name="checked" size={1} background="white" />
                     <span>Cotton Combed 30s</span>
@@ -233,29 +233,7 @@ export default class Home extends React.Component {
               <Product>
                 <img src={PoloImg} />
                 <div>
-                  <h4>Rp 100.000,-</h4>
-                  <div>
-                    <Icon name="checked" size={1} background="white" />
-                    <span>Fleece</span>
-                  </div>
-                  <div>
-                    <Icon name="checked" size={1} background="white" />
-                    <span>Sablon 4 Warna A3</span>
-                  </div>
-                  <div>
-                    <Icon name="checked" size={1} background="white" />
-                    <span>Sablon Label</span>
-                  </div>
-                  <div>
-                    <Icon name="checked" size={1} background="white" />
-                    <span>Packing Plastic</span>
-                  </div>
-                </div>
-              </Product>
-              <Product>
-                <img src={HoodieImg} />
-                <div>
-                  <h4>Rp 65.000,-</h4>
+                  <h4>Start from Rp 100.000,-</h4>
                   <div>
                     <Icon name="checked" size={1} background="white" />
                     <span>Lacoste</span>
@@ -273,6 +251,28 @@ export default class Home extends React.Component {
                     <span>Packing Plastic</span>
                   </div>
                 </div>
+              </Product>
+              <Product>
+                <img src={HoodieImg} />
+                <div>
+                  <h4>Start from Rp 65.000,-</h4>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Fleece</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon 4 Warna A3</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Sablon Label</span>
+                  </div>
+                  <div>
+                    <Icon name="checked" size={1} background="white" />
+                    <span>Packing Plastic</span>
+                  </div>
+                </div>                  
               </Product>
             </Products>
           </OurProductsContent>
@@ -531,6 +531,21 @@ const Feature = styled.div`
     justify-content: center;
     align-items: center;
     align-content: center;
+
+    h5 {
+      flex: 1;
+      margin-left: 0.5rem;
+      font-size: 1rem;
+
+      ${media('tablet')} {
+        width: 100%;
+        flex: none;
+        margin-top: 1rem;
+        margin-left: 0;
+        font-size: 0.75rem;
+        text-align: center;
+      }
+    }
 
     h4 {
       flex: 1;

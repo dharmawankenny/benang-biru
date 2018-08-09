@@ -211,7 +211,7 @@ export default class Home extends React.Component {
               <Product>
                 <img src={ShirtImg} />
                 <div>
-                  <h4>Start from Rp 50.000,-</h4>
+                  <h4><span>Start from</span> Rp 50.000,-</h4>
                   <div>
                     <Icon name="checked" size={1} background="white" />
                     <span>Cotton Combed 30s</span>
@@ -233,7 +233,7 @@ export default class Home extends React.Component {
               <Product>
                 <img src={PoloImg} />
                 <div>
-                  <h4>Start from Rp 100.000,-</h4>
+                  <h4><span>Start from</span> Rp 100.000,-</h4>
                   <div>
                     <Icon name="checked" size={1} background="white" />
                     <span>Lacoste</span>
@@ -255,7 +255,7 @@ export default class Home extends React.Component {
               <Product>
                 <img src={HoodieImg} />
                 <div>
-                  <h4>Start from Rp 65.000,-</h4>
+                  <h4><span>Start from</span> Rp 65.000,-</h4>
                   <div>
                     <Icon name="checked" size={1} background="white" />
                     <span>Fleece</span>
@@ -272,7 +272,7 @@ export default class Home extends React.Component {
                     <Icon name="checked" size={1} background="white" />
                     <span>Packing Plastic</span>
                   </div>
-                </div>                  
+                </div>
               </Product>
             </Products>
           </OurProductsContent>
@@ -948,6 +948,16 @@ const Product = styled.div`
       font-size: 1.5rem;
       margin-bottom: 1rem;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      span {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+      }
     }
 
     & > div {

@@ -23,12 +23,12 @@ import AuthState from '../../states/AuthState';
 export default class Home extends React.Component {
   static HERO_SLIDER = [
     {
-      title: 'TERIMA PESANAN',
+      title: 'PABRIK KONVEKSI BERKUALITAS UNTUK MITRA BISNIS ANDA',
       text: 'Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.',
       bg: SlideShowOneImage,
     },
     {
-      title: 'KUALITAS TERBAIK',
+      title: 'PABRIK KONVEKSI BERKUALITAS UNTUK MITRA BISNIS ANDA',
       text: 'Kami merupakan perusahaan penyedia jasa pembuatan produk konveksi yang telah dipercaya berbagai instansi dan fashion label untuk memenuhi kebutuhan produksi kaos, polo, kemeja, jaket, seragam kantor, seminar kit, dan lainnya. Dengan mengedepankan kualitas dan kepuasan konsumen, kami siap menjadi mitra terbaik anda.',
       bg: SlideShowTwoImage,
     },
@@ -368,8 +368,7 @@ const HeroContent = styled.div`
 
 const HeroText = styled.div`
   margin-bottom: 4rem;
-  max-width: 40rem;
-
+  
   ${media('tablet')} {
     height: auto;
     margin-top: 30vh;
@@ -416,12 +415,15 @@ const HeroText = styled.div`
   p {
     text-align: left;
     color: ${props => props.theme.color.white};
+    max-width: 40rem;
   }
 
   h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    max-width: 60rem;
+
 
     ${media('tablet')} {
       font-size: 2rem;
